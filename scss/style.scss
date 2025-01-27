@@ -1,1 +1,37 @@
 @import "./partial/bootstrap-overrides";
+
+body {
+  font-family: "Circular", sans-serif;
+  header {
+    height: 64px;
+    padding-top: 0.825rem;
+    nav {
+      a {
+        text-decoration: none;
+        color: inherit;
+        font-weight: 700;
+        padding-inline: 8px;
+        span.user {
+          background-color: #19e58b;
+          padding: 8px 10px;
+          border-radius: 50%;
+          border: 6px solid #1f1f1f;
+          color: #000000;
+        }
+      }
+    }
+  }
+  main {
+    height: calc(100vh - 136px);
+  }
+  section {
+    height: 72px;
+  }
+}
+
+.svgicon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
