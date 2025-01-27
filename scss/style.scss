@@ -11,23 +11,33 @@ body {
         color: inherit;
         font-weight: 700;
         padding-inline: 8px;
+        span.home {
+          box-shadow: 0 0 0 10px #1f1f1f;
+          border-radius: 50%;
+          display: inline-block;
+          margin-right: 10px;
+          margin-top: 5px;
+        }
         span.user {
           background-color: #19e58b;
           padding: 8px 10px;
-          border-radius: 50%;
           box-shadow: 0 0 0 7px #1f1f1f;
+          border-radius: 50%;
           color: #000000;
+          margin-top: 5px;
         }
       }
 
       form {
-        input{
-         background-color: transparent;
-         &:focus{
-          outline:none !important
-         }
+        input {
+          background-color: transparent;
+          width: 300px;
+          border: 0;
+          border-right: 1px solid #b3b3b3 !important;
+          &:focus {
+            outline: none !important;
+          }
         }
-        
       }
     }
   }
