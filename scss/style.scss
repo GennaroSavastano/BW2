@@ -24,7 +24,7 @@ body {
         input{
          background-color: transparent;
          &:focus{
-          border-color:transparent;
+          outline:none !important
          }
         }
         

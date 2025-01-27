@@ -12000,7 +12000,7 @@ body header nav form input {
   background-color: transparent;
 }
 body header nav form input:focus {
-  border-color: transparent;
+  outline: none !important;
 }
 body main {
   height: calc(100vh - 136px);
