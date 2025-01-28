@@ -12029,6 +12029,7 @@ body section {
 
 .svgplayer {
   width: 1rem;
+  cursor: pointer;
 }
 
 .svgplayerpath {
