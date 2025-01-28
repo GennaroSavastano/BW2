@@ -12207,6 +12207,10 @@ body section {
   color: #fff;
 }
 
+.play-green {
+  background: green;
+}
+
 .player-footer {
   width: 100%;
   display: flex;
