@@ -12161,9 +12161,9 @@ body section {
 .song-time {
   width: 100%;
   height: 0.5rem;
-  background-color: #0c0c0d;
+  background-color: #b3b3b3;
   border-radius: 0.5rem;
-  margin-bottom: 1rem;
+  margin-inline: 1rem;
   cursor: pointer;
   position: relative;
 }
