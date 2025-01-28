@@ -12226,7 +12226,7 @@ body section {
 }
 
 .divgenre {
-  width: 23%;
+  width: 250px;
   flex-grow: 1;
   border-radius: 5px;
   background-color: rgba(209, 209, 209, 0.231372549);
@@ -12239,4 +12239,14 @@ body section {
 
 .imggenre {
   width: 50px;
+}
+
+.rowdaily {
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.coldaily {
+  width: 19%;
+  height: 200px;
 }/*# sourceMappingURL=style.css.map */
