@@ -12014,10 +12014,10 @@ body header nav form input:focus {
   outline: none !important;
 }
 body main {
-  height: calc(100vh - 136px);
+  height: calc(100vh - 152px);
 }
 body section {
-  height: 72px;
+  height: 88px;
 }
 
 .svgicon {
