@@ -1,13 +1,10 @@
 const genre = document.getElementById("genre");
-let idGenreRandom = 0;
+let idRadio = 1;
+let radioCreated = 0; // Imposto il valore di controllo per definire quante Radio vengono create
+const lastRadio = 8; // Definisco il massimo di radio da ottenere
 
-function randomId() {
-  return (idGenreRandom = Math.round(Math.random() * 24) + 1);
-}
-
-function fetchGenre(idGenreRandom) {
-  console.log(idGenreRandom);
-  const url = "https://deezerdevs-deezer.p.rapidapi.com/genre/" + idGenreRandom;
+function fetchRadio(idRadio) {
+  const url = "https://deezerdevs-deezer.p.rapidapi.com/radio/" + idRadio;
   const options = {
     method: "GET",
     headers: {
@@ -16,28 +13,38 @@ function fetchGenre(idGenreRandom) {
     },
   };
 
-  const myGenre = async () => {
+  const myRadio = async () => {
     try {
       const response = await fetch(url, options);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-      const result = await response.json();
-      console.log(result);
 
-      createGenre(result);
+      const result = await response.json();
+      console.log(result.title);
+
+      if (result.title === undefined) {
+        idRadio++;
+      } else {
+        radioCreated++;
+        idRadio++;
+        createRadio(result);
+      }
+
+      console.log("idRadio; ", idRadio);
+      if (radioCreated < lastRadio) {
+        fetchRadio(idRadio);
+      }
     } catch (error) {
       console.error("Errore:", error.message);
     }
   };
-  myGenre();
+  myRadio();
 }
 
-for (let i = 0; i < 8; i++) {
-  fetchGenre(randomId());
-}
+fetchRadio(idRadio);
 
-function createGenre(result) {
+function createRadio(result) {
   const divGenre = document.createElement("div");
   divGenre.classList.add("d-flex", "align-items-center", "divgenre");
 
@@ -46,8 +53,8 @@ function createGenre(result) {
   imgGenre.classList.add("imggenre");
 
   const titleGenre = document.createElement("p");
-  titleGenre.classList.add("mb-0", "ps-2");
-  titleGenre.innerText = result.name;
+  titleGenre.classList.add("mb-0", "ps-2", "fs-7", "text-light");
+  titleGenre.innerText = result.title;
 
   divGenre.appendChild(imgGenre);
   divGenre.appendChild(titleGenre);

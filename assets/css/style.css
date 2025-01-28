@@ -12227,9 +12227,14 @@ body section {
 
 .divgenre {
   width: 23%;
+  flex-grow: 1;
   border-radius: 5px;
   background-color: rgba(209, 209, 209, 0.231372549);
   overflow: hidden;
+}
+
+.divgenre p {
+  font-weight: 600;
 }
 
 .imggenre {
