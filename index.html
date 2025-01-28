@@ -64,24 +64,29 @@
     </header>
     <main>
       <div class="container-fluid h-100 px-2">
-        <div class="row h-100 g-2">
+        <div class="row h-100 g-3">
           <div class="col-2 h-100">
             <div class="container-fluid bg-dark h-100 rounded"></div>
           </div>
-          <div class="col-8 h-100">
-            <div class="container-fluid bg-dark h-100 rounded d-flex flex-column">
+          <div class="col-8 h-100 bg-dark rounded overflow-y-auto">
+            <div class="container-fluid d-flex flex-column">
               <div class="row">
                 <div class="col">
                   <button class="btn btn-secondary py-1 px-2 fs-7 rounded-pill mt-3 active">Tutto</button>
                   <button class="btn btn-secondary py-1 px-2 fs-7 rounded-pill mt-3">Musica</button>
                   <button class="btn btn-secondary py-1 px-2 fs-7 rounded-pill mt-3">Podcast</button>
                 </div>
+                <div class="spinner-border text-secondary p-5 myspinner" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
               </div>
               <div class="row mt-3">
                 <div class="col-12 d-flex flex-wrap gap-2" id="genre"></div>
               </div>
-              <h2 class="mt-5 mb-0">Creato per te</h2>
+              <h2 id="foryou"></h2>
               <div class="row mt-3 rowdaily" id="daily"></div>
+              <h2 id="better"></h2>
+              <div class="row mt-3 rowdaily" id="betterartist"></div>
             </div>
           </div>
           <div class="col-2 h-100">

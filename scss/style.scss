@@ -44,6 +44,12 @@ body {
   main {
     height: calc(100vh - 152px);
 
+    .myspinner {
+      position: fixed;
+      left: 47.5%;
+      top: 25%;
+    }
+
     .divgenre {
       width: 250px;
       flex-grow: 1;
@@ -79,8 +85,9 @@ body {
 
     .dailyicon {
       position: relative;
-      top: -235px;
-      left: 15px;
+      top: 5px;
+      left: -85px;
+      height: 0;
     }
     .dailymix {
       position: relative;
