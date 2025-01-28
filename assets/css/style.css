@@ -12027,6 +12027,10 @@ body section {
   fill: currentColor;
 }
 
+.svgplayer {
+  fill: white;
+}
+
 .player {
   width: 35rem;
   height: 70rem;
@@ -12048,6 +12052,7 @@ body section {
 .player-btn {
   width: 2rem;
   height: 2rem;
+  background: transparent;
   border: none;
   border-radius: 50%;
   color: #a8a9ab;
@@ -12186,7 +12191,7 @@ body section {
 }
 
 .controls {
-  width: 100%;
+  width: 250px;
   display: flex;
   justify-content: space-between;
   align-items: center;
