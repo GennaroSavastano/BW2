@@ -12223,4 +12223,15 @@ body section {
 .player-footer span {
   font-size: 1.2rem;
   color: #a8a9ab;
+}
+
+.divgenre {
+  width: 23%;
+  border-radius: 5px;
+  background-color: rgba(209, 209, 209, 0.231372549);
+  overflow: hidden;
+}
+
+.imggenre {
+  width: 50px;
 }/*# sourceMappingURL=style.css.map */
