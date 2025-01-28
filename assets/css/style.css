@@ -12016,6 +12016,90 @@ body header nav form input:focus {
 body main {
   height: calc(100vh - 152px);
 }
+body main .divgenre {
+  width: 250px;
+  flex-grow: 1;
+  border-radius: 5px;
+  background-color: rgba(209, 209, 209, 0.231372549);
+  overflow: hidden;
+}
+body main .divgenre p {
+  font-weight: 600;
+}
+body main .imggenre {
+  width: 50px;
+}
+body main .rowdaily {
+  flex-wrap: nowrap;
+  overflow: hidden;
+  height: 270px;
+}
+body main .coldaily {
+  width: 216px;
+}
+body main .dailyinfo {
+  height: 8px;
+}
+body main .imgdaily {
+  max-width: 200px;
+}
+body main .dailyicon {
+  position: relative;
+  top: -235px;
+  left: 15px;
+}
+body main .dailymix {
+  position: relative;
+  top: 175px;
+  color: #000000;
+  font-weight: 600;
+  padding-inline: 2px;
+  font-size: 1.2rem;
+}
+body main .dailymix01 {
+  background: aqua;
+}
+body main .dailyicon01 {
+  color: aqua;
+}
+body main .dailymix02 {
+  background: yellow;
+}
+body main .dailyicon02 {
+  color: yellow;
+}
+body main .dailymix03 {
+  background: #fa4835;
+}
+body main .dailyicon03 {
+  color: #fa4835;
+}
+body main .dailymix04 {
+  background: #f69cd5;
+}
+body main .dailyicon04 {
+  color: #f69cd5;
+}
+body main .dailymix05 {
+  background: #cef672;
+}
+body main .dailyicon05 {
+  color: #cef672;
+}
+body main .dailymix06 {
+  background: #afb2fd;
+}
+body main .dailyicon06 {
+  color: #afb2fd;
+}
+body main h2, body main .h2 {
+  font-weight: 600;
+}
+body main h2:hover, body main .h2:hover {
+  text-decoration: underline;
+  color: #ffffff;
+  cursor: pointer;
+}
 body section {
   height: 88px;
 }
@@ -12223,30 +12307,4 @@ body section {
 .player-footer span {
   font-size: 1.2rem;
   color: #a8a9ab;
-}
-
-.divgenre {
-  width: 250px;
-  flex-grow: 1;
-  border-radius: 5px;
-  background-color: rgba(209, 209, 209, 0.231372549);
-  overflow: hidden;
-}
-
-.divgenre p {
-  font-weight: 600;
-}
-
-.imggenre {
-  width: 50px;
-}
-
-.rowdaily {
-  flex-wrap: nowrap;
-  overflow: hidden;
-}
-
-.coldaily {
-  width: 19%;
-  height: 200px;
 }/*# sourceMappingURL=style.css.map */
