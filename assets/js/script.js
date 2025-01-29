@@ -58,7 +58,7 @@ function createDaily(artists) {
 
     const dailyMix = document.createElement("div", "text-truncate");
     dailyMix.classList.add("d-flex", "justify-content-between", "w-100", "align-items-center", "dailyinfo");
-    dailyMix.innerHTML = `<span class="fs-6 dailymix dailymix0${numArtist}">Daily Mix</span><span class="fs-3 dailymix dailymix0${numArtist}">0${numArtist}</span>`;
+    dailyMix.innerHTML = `<span class="fs-6 dailymix dailymix0${numArtist}">Daily Mix</span><span class="fs-3 dailymix dx dailymix0${numArtist}">0${numArtist}</span>`;
 
     const imgArtist = document.createElement("img");
     imgArtist.src = artists[i].picture_medium;
@@ -72,6 +72,14 @@ function createDaily(artists) {
     dailyIcon.classList.add("dailyicon", `dailyicon0${numArtist}`);
     dailyIcon.innerHTML = `<i class="bi bi-spotify fs-6"></i>`;
 
+    const playBtn = document.createElement("button");
+    playBtn.classList.add("player-btn", "play-pause-daily", "me-2");
+    playBtn.type = "button";
+    playBtn.innerHTML = `<svg data-encore-id="icon" role="img" aria-hidden="true" class="svgplayer" viewBox="0 0 16 16">
+        <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
+      </svg>`;
+
+    dailyMix.appendChild(playBtn);
     divArtist.appendChild(dailyMix);
     divArtist.appendChild(dailyIcon);
     divArtist.appendChild(imgArtist);
@@ -79,6 +87,20 @@ function createDaily(artists) {
     colArtist.appendChild(divArtist);
 
     daily.appendChild(colArtist);
+
+    colArtist.style.cursor = "pointer";
+
+    colArtist.addEventListener("mouseover", () => {
+      playBtn.classList.add("show");
+    });
+
+    colArtist.addEventListener("mouseout", () => {
+      playBtn.classList.remove("show");
+    });
+
+    colArtist.addEventListener("click", () => {
+      window.location.href = `artist.html?id=${artists[i].id}`;
+    });
   }
   const h2 = document.getElementById("foryou");
   h2.classList.add("mt-5", "mb-0", "fs-4");
@@ -99,12 +121,34 @@ function createRandom(artists) {
     imgGenre.classList.add("imggenre");
 
     const titleGenre = document.createElement("p");
-    titleGenre.classList.add("mb-0", "ps-2", "fs-7", "text-secondary");
+    titleGenre.classList.add("mb-0", "ps-2", "fs-7", "text-secondary", "w-100");
     titleGenre.innerText = artists[i].name;
+
+    const playBtn = document.createElement("button");
+    playBtn.classList.add("player-btn", "play-pause-green", "me-2");
+    playBtn.type = "button";
+    playBtn.innerHTML = `<svg data-encore-id="icon" role="img" aria-hidden="true" class="svgplayer" viewBox="0 0 16 16">
+        <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
+      </svg>`;
 
     divGenre.appendChild(imgGenre);
     divGenre.appendChild(titleGenre);
+    divGenre.appendChild(playBtn);
     genre.appendChild(divGenre);
+
+    divGenre.style.cursor = "pointer";
+
+    divGenre.addEventListener("mouseover", () => {
+      playBtn.classList.add("show");
+    });
+
+    divGenre.addEventListener("mouseout", () => {
+      playBtn.classList.remove("show");
+    });
+
+    divGenre.addEventListener("click", () => {
+      window.location.href = `artist.html?id=${artists[i].id}`;
+    });
   }
   return createBetter(artists);
 }
@@ -133,6 +177,20 @@ function createBetter(artists) {
     colArtist.appendChild(divArtist);
 
     betterArtist.appendChild(colArtist);
+
+    colArtist.style.cursor = "pointer";
+
+    colArtist.addEventListener("mouseover", () => {
+      playBtn.classList.add("show");
+    });
+
+    colArtist.addEventListener("mouseout", () => {
+      playBtn.classList.remove("show");
+    });
+
+    colArtist.addEventListener("click", () => {
+      window.location.href = `artist.html?id=${artists[i].id}`;
+    });
   }
   const h2 = document.getElementById("better");
   h2.classList.add("mt-5", "mb-0", "fs-4");

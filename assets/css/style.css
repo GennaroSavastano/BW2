@@ -12061,6 +12061,9 @@ body main .dailymix {
   padding-inline: 2px;
   font-size: 1.2rem;
 }
+body main .dailymix.dx {
+  left: 70px;
+}
 body main .dailymix01 {
   background: aqua;
 }
@@ -12294,6 +12297,57 @@ body section {
   height: 2rem;
   background: white;
   color: #fff;
+}
+
+.play-pause-green {
+  width: 39px;
+  height: 32px;
+  background: #37e189;
+  transform: translateY(10px);
+  transition: 0.1s linear;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.play-pause-green.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.play-pause-daily {
+  width: 42px;
+  height: 42px;
+  background: #37e189;
+  transform: translateY(10px);
+  transition: 0.1s linear;
+  position: relative;
+  top: 175px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.play-pause-daily.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.play-pause-card {
+  width: 42px;
+  height: 42px;
+  background: #37e189;
+  transform: translateY(10px);
+  transition: 0.1s linear;
+  position: relative;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.play-pause-daily.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
 }
 
 .play-green {
