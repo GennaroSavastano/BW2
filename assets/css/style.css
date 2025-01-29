@@ -12037,7 +12037,6 @@ body main .imggenre {
 body main .rowdaily {
   flex-wrap: nowrap;
   overflow: hidden;
-  height: 270px;
 }
 body main .coldaily {
   width: 216px;

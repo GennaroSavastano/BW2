@@ -11,7 +11,7 @@ async function fetchArtists(numArtists, apiUrl, apiKey) {
   let artistCreated = 0;
 
   const fetchSingleArtist = async () => {
-    const idArtist = Math.round(Math.random() * 17355);
+    const idArtist = Math.round(Math.random() * 100);
     const url = `${apiUrl}artist/${idArtist}`;
     const options = {
       method: "GET",
@@ -113,10 +113,7 @@ const betterArtist = document.getElementById("betterartist");
 const betterArtistLenght = randomLenght + 6;
 
 function createBetter(artists) {
-  let numArtist = 0;
   for (let i = randomLenght; i < betterArtistLenght; i++) {
-    numArtist = i + 1;
-
     const colArtist = document.createElement("div");
     colArtist.classList.add("coldaily");
 
@@ -131,11 +128,6 @@ function createBetter(artists) {
     titleArtist.classList.add("mb-0", "ps-2", "fs-7", "text-secondary", "mt-3");
     titleArtist.innerText = `${artists[i].name}`;
 
-    const dailyIcon = document.createElement("span");
-    dailyIcon.classList.add("dailyicon", `dailyicon0${numArtist}`);
-    dailyIcon.innerHTML = `<i class="bi bi-spotify fs-6"></i>`;
-
-    divArtist.appendChild(dailyIcon);
     divArtist.appendChild(imgArtist);
     divArtist.appendChild(titleArtist);
     colArtist.appendChild(divArtist);
@@ -145,35 +137,83 @@ function createBetter(artists) {
   const h2 = document.getElementById("better");
   h2.classList.add("mt-5", "mb-0", "fs-4");
   h2.innerText = "Il meglio degli artisti";
-  return fetchRecommended(artists, myApiUrl, API_KEY);
+  return fetchRecommended(artists, myApiUrl, API_KEY, 0);
 }
 
-async function fetchRecommended(artists, apiUrl, apiKey) {
-  const recommendedSongs = [];
+const recommendedSongs = [];
+const numSongs = 6;
+let songsCreated = 0;
+async function fetchRecommended(artists, apiUrl, apiKey, idSongs) {
+  //const idArtist = artists[idSongs].id;
+  const idArtist = Math.round(Math.random() * 100);
+  const url = `${apiUrl}artist/${idArtist}/top?limit=1`;
+  const options = {
+    method: "GET",
+    headers: {
+      Authorization: apiKey,
+    },
+  };
 
-  for (const artist of artists) {
-    const idArtist = artist.id;
-    const url = `${apiUrl}artist/${idArtist}/top?limit=1`;
-    const options = {
-      method: "GET",
-      headers: {
-        Authorization: apiKey,
-      },
-    };
-
-    try {
-      const response = await fetch(url, options);
-      if (!response.ok) {
-        throw new Error(`Errore per l'artista ${idArtist}: ${response.statusText}`);
-      }
-      const singleSong = await response.json();
-      recommendedSongs.push(singleSong);
-    } catch (err) {
-      console.error(`Errore durante il fetch per l'artista ${idArtist}: ${err.message}`);
+  try {
+    const response = await fetch(url, options);
+    if (!response.ok) {
+      throw new Error(`Errore per l'artista ${idArtist}: ${response.statusText}`);
     }
+    const singleSong = await response.json();
+    //console.log(url);
+    //console.log(singleSong.data);
+    if (singleSong.total !== 0) {
+      recommendedSongs.push(singleSong.data);
+      console.log(recommendedSongs);
+      songsCreated++;
+    }
+    idSongs++;
+  } catch (err) {
+    console.error(`Errore durante il fetch della canzone per l'artista ${idArtist}: ${err.message}`);
   }
+  /*   while (songsCreated < numSongs) {
+    fetchRecommended(artists, apiUrl, apiKey, idSongs);
+  }
+  return createRecommended(recommendedSongs); */
+  if (songsCreated !== numSongs) {
+    //setTimeout(() => fetchRecommended(artists, apiUrl, apiKey, idSongs), 2000);
+    fetchRecommended(artists, apiUrl, apiKey, idSongs);
+  } else {
+    return createRecommended(recommendedSongs);
+  }
+}
 
-  return recommendedSongs; // Restituisce l'elenco di canzoni raccomandate
+const divRecoSongs = document.getElementById("recommendedsongs");
+
+function createRecommended(recommendedSongs) {
+  for (let i = 0; i < recommendedSongs.length; i++) {
+    const colArtist = document.createElement("div");
+    colArtist.classList.add("coldaily");
+
+    const divArtist = document.createElement("div");
+    divArtist.classList.add("d-flex", "align-items-center", "card", "w-100", "border-0");
+
+    const imgArtist = document.createElement("img");
+    imgArtist.src = recommendedSongs[i][0].album.cover_medium;
+    imgArtist.classList.add("imgdaily", "rounded");
+
+    const titleArtist = document.createElement("p");
+    titleArtist.classList.add("mb-0", "ps-2", "fs-7", "text-secondary", "mt-3", "d-flex", "flex-column", "w-100");
+    titleArtist.innerHTML = `${recommendedSongs[i][0].title}<span class="text-light">${recommendedSongs[i][0].artist.name}</span>`;
+
+    divArtist.appendChild(imgArtist);
+    divArtist.appendChild(titleArtist);
+    colArtist.appendChild(divArtist);
+
+    divRecoSongs.classList.remove("d-none");
+    divRecoSongs.classList.add("d-flex");
+    divRecoSongs.appendChild(colArtist);
+  }
+  const h2 = document.getElementById("recommended");
+  h2.classList.remove("d-none");
+  h2.classList.add("mt-5", "mb-0", "fs-4", "d-block");
+  h2.innerText = "Consigliata per oggi";
+  //return fetchRecommended(artists, myApiUrl, API_KEY, 0);
 }
 
 // Codice per gestione spinner
