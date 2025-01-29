@@ -6,6 +6,7 @@ let artistCreated = 0;
 const numArtists = 22;
 const artists = [];
 
+// Faccio la fetch degli artisti
 async function fetchArtists(numArtists, apiUrl, apiKey) {
   const artists = [];
   let artistCreated = 0;
@@ -37,6 +38,8 @@ async function fetchArtists(numArtists, apiUrl, apiKey) {
     await fetchSingleArtist();
   }
   isLoading(false);
+  localStorage.setItem("artists", JSON.stringify(artists));
+  fetchAll(artists, myApiUrl, API_KEY, 0);
   return createDaily(artists);
 }
 
@@ -230,7 +233,6 @@ async function fetchRecommended(artists, apiUrl, apiKey, idSongs) {
     //console.log(singleSong.data);
     if (singleSong.total !== 0) {
       recommendedSongs.push(singleSong.data);
-      console.log(recommendedSongs);
       songsCreated++;
     }
     idSongs++;
@@ -323,3 +325,49 @@ const isLoading = function (loadingState) {
     spinner.classList.add("d-none");
   }
 };
+
+const topSongs = [];
+async function fetchAll(artists, apiUrl, apiKey, iArr) {
+  const idArtist = artists[iArr].id;
+  const url = `${apiUrl}artist/${idArtist}/top?limit=50`;
+  console.log(url);
+  const options = {
+    method: "GET",
+    headers: {
+      Authorization: apiKey,
+    },
+  };
+
+  try {
+    const response = await fetch(url, options);
+    if (!response.ok) {
+      throw new Error(`Errore per l'artista ${idArtist}: ${response.statusText}`);
+    }
+    const singleTop = await response.json();
+    console.log(singleTop);
+    if (singleTop.total !== 0) {
+      topSongs.push(singleTop.data);
+      console.log(topSongs);
+    }
+  } catch (err) {
+    console.error(`Errore durante il fetch della canzone per l'artista ${idArtist}: ${err.message}`);
+  }
+  /*  while (iArr < artists.length) {
+    fetchRecommended(artists, apiUrl, apiKey, iArr);
+  } */
+  iArr++;
+  if (iArr === artists.length) {
+    return;
+  } else {
+    fetchAll(artists, apiUrl, apiKey, iArr);
+  }
+
+  /*
+  return createRecommended(recommendedSongs); */
+  /*   if (songsCreated !== numSongs) {
+    //setTimeout(() => fetchRecommended(artists, apiUrl, apiKey, idSongs), 2000);
+    fetchRecommended(artists, apiUrl, apiKey, idSongs);
+  } else {
+    return createRecommended(recommendedSongs);
+  } */
+}
