@@ -67,7 +67,7 @@
         <div class="row h-100 g-2">
           <div class="col-3 h-100 leftsidebar">
             <div class="container-fluid bg-dark h-100 rounded">
-              <div class="pt-4">
+              <div class="pt-4 d-flex">
                 <button type="button" class="btn d-flex">
                   <svg
                     data-encore-id="icon"
@@ -82,64 +82,52 @@
                   </svg>
 
                   <p class="fw-bold text-secondary ms-2">La tua libreria</p>
-
-                  <div class="mx-5 d-flex">
-                    <div class="dropdown">
-                      <a class="nav-link show" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
-                        <span class="user"><i class="bi bi-plus-lg fs-5"></i></span>
-                      </a>
-
-                      <ul
-                        class="dropdown-menu show"
-                        style="
-                          position: absolute;
-                          inset: 0px 0px auto auto;
-                          margin: 0px;
-                          transform: translate3d(0.666667px, 26px, 0px);
-                        "
-                        data-popper-placement="bottom-end"
-                      >
-                        <li class="addplaylist">
-                          <a class="dropdown-item" href="#">
-                            <svg
-                              data-encore-id="icon"
-                              role="img"
-                              aria-hidden="true"
-                              class="svgicon"
-                              viewBox="0 0 16 16"
-                            >
-                              <path
-                                d="M2 0v2H0v1.5h2v2h1.5v-2h2V2h-2V0H2zm11.5 2.5H8.244A5.482 5.482 0 0 0 7.966 1H15v11.75A2.75 2.75 0 1 1 12.25 10h1.25V2.5zm0 9h-1.25a1.25 1.25 0 1 0 1.25 1.25V11.5zM4 8.107a5.465 5.465 0 0 0 1.5-.593v5.236A2.75 2.75 0 1 1 2.75 10H4V8.107zM4 11.5H2.75A1.25 1.25 0 1 0 4 12.75V11.5z"
-                              ></path>
-                            </svg>
-
-                            Crea una nuova playlist
-                          </a>
-                        </li>
-
-                        <li class="addplaylist">
-                          <a class="dropdown-item" href="#">
-                            <svg
-                              data-encore-id="icon"
-                              role="img"
-                              aria-hidden="true"
-                              class="svgicon"
-                              viewBox="0 0 16 16"
-                            >
-                              <path
-                                d="M1.75 1A1.75 1.75 0 0 0 0 2.75v11.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0 0 16 14.25v-9.5A1.75 1.75 0 0 0 14.25 3H7.82l-.65-1.125A1.75 1.75 0 0 0 5.655 1H1.75zM1.5 2.75a.25.25 0 0 1 .25-.25h3.905a.25.25 0 0 1 .216.125L6.954 4.5h7.296a.25.25 0 0 1 .25.25v9.5a.25.25 0 0 1-.25.25H1.75a.25.25 0 0 1-.25-.25V2.75z"
-                              ></path>
-                            </svg>
-
-                            Crea una cartella playlist</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div class="ps-3"><i class="bi bi-arrow-right fs-5"></i></div>
-                  </div>
                 </button>
+
+                <div class="mx-5 d-flex">
+                  <div class="dropdown">
+                    <a class="nav-link show" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                      <span class="user"><i class="bi bi-plus-lg fs-5"></i></span>
+                    </a>
+
+                    <ul
+                      class="dropdown-menu show"
+                      style="
+                        position: absolute;
+                        inset: 0px 0px auto auto;
+                        margin: 0px;
+                        transform: translate3d(0.666667px, 26px, 0px);
+                      "
+                      data-popper-placement="bottom-end"
+                    >
+                      <li class="addplaylist">
+                        <a class="dropdown-item" href="#">
+                          <svg data-encore-id="icon" role="img" aria-hidden="true" class="svgicon" viewBox="0 0 16 16">
+                            <path
+                              d="M2 0v2H0v1.5h2v2h1.5v-2h2V2h-2V0H2zm11.5 2.5H8.244A5.482 5.482 0 0 0 7.966 1H15v11.75A2.75 2.75 0 1 1 12.25 10h1.25V2.5zm0 9h-1.25a1.25 1.25 0 1 0 1.25 1.25V11.5zM4 8.107a5.465 5.465 0 0 0 1.5-.593v5.236A2.75 2.75 0 1 1 2.75 10H4V8.107zM4 11.5H2.75A1.25 1.25 0 1 0 4 12.75V11.5z"
+                            ></path>
+                          </svg>
+
+                          Crea una nuova playlist
+                        </a>
+                      </li>
+
+                      <li class="addplaylist">
+                        <a class="dropdown-item" href="#">
+                          <svg data-encore-id="icon" role="img" aria-hidden="true" class="svgicon" viewBox="0 0 16 16">
+                            <path
+                              d="M1.75 1A1.75 1.75 0 0 0 0 2.75v11.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0 0 16 14.25v-9.5A1.75 1.75 0 0 0 14.25 3H7.82l-.65-1.125A1.75 1.75 0 0 0 5.655 1H1.75zM1.5 2.75a.25.25 0 0 1 .25-.25h3.905a.25.25 0 0 1 .216.125L6.954 4.5h7.296a.25.25 0 0 1 .25.25v9.5a.25.25 0 0 1-.25.25H1.75a.25.25 0 0 1-.25-.25V2.75z"
+                            ></path>
+                          </svg>
+
+                          Crea una cartella playlist</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="ps-3"><i class="bi bi-arrow-right fs-5"></i></div>
+                </div>
               </div>
               <div class="mt-3 bg-dark-subtle p-3 rounded-2">
                 <p class="fw-bold">Crea la tua prima playlist</p>
