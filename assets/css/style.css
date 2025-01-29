@@ -12036,10 +12036,18 @@ body main .imggenre {
 }
 body main .rowdaily {
   flex-wrap: nowrap;
-  overflow: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
+body main .rowdaily::-webkit-scrollbar {
+  display: none;
 }
 body main .coldaily {
   width: 216px;
+}
+body main .space-normal {
+  white-space: normal;
 }
 body main .dailyinfo {
   height: 8px;

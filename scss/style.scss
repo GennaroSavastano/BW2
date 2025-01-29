@@ -68,11 +68,20 @@ body {
 
     .rowdaily {
       flex-wrap: nowrap;
-      overflow: hidden;
+      overflow-x: auto;
+      white-space: nowrap;
+      scroll-behavior: smooth;
+    }
+
+    .rowdaily::-webkit-scrollbar {
+      display: none;
     }
 
     .coldaily {
       width: 216px;
+    }
+    .space-normal {
+      white-space: normal;
     }
 
     .dailyinfo {

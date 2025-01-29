@@ -65,7 +65,7 @@ function createDaily(artists) {
     imgArtist.classList.add("imgdaily", "rounded");
 
     const titleArtist = document.createElement("p");
-    titleArtist.classList.add("mb-0", "ps-2", "fs-7", "text-secondary", "mt-3");
+    titleArtist.classList.add("mb-0", "ps-2", "fs-7", "text-secondary", "mt-3", "space-normal");
     titleArtist.innerText = `${artists[i].name}, ${artists[i + 7].name}, ${artists[i + 8].name}`;
 
     const dailyIcon = document.createElement("span");
@@ -121,7 +121,7 @@ function createRandom(artists) {
     imgGenre.classList.add("imggenre");
 
     const titleGenre = document.createElement("p");
-    titleGenre.classList.add("mb-0", "ps-2", "fs-7", "text-secondary", "w-100");
+    titleGenre.classList.add("mb-0", "ps-2", "fs-7", "text-secondary", "w-100", "space-normal");
     titleGenre.innerText = artists[i].name;
 
     const playBtn = document.createElement("button");
@@ -169,7 +169,7 @@ function createBetter(artists) {
     imgArtist.classList.add("imgdaily", "rounded");
 
     const titleArtist = document.createElement("p");
-    titleArtist.classList.add("mb-0", "ps-2", "fs-7", "text-secondary", "mt-3");
+    titleArtist.classList.add("mb-0", "ps-2", "fs-7", "text-secondary", "mt-3", "space-normal");
     titleArtist.innerText = `${artists[i].name}`;
 
     const playBtn = document.createElement("button");
@@ -264,7 +264,17 @@ function createRecommended(recommendedSongs) {
     imgArtist.classList.add("imgdaily", "rounded");
 
     const titleArtist = document.createElement("p");
-    titleArtist.classList.add("mb-0", "ps-2", "fs-7", "text-secondary", "mt-3", "d-flex", "flex-column", "w-100");
+    titleArtist.classList.add(
+      "mb-0",
+      "ps-2",
+      "fs-7",
+      "text-secondary",
+      "mt-3",
+      "d-flex",
+      "flex-column",
+      "w-100",
+      "space-normal"
+    );
     titleArtist.innerHTML = `${recommendedSongs[i][0].title}<span class="text-light">${recommendedSongs[i][0].artist.name}</span>`;
 
     const playBtn = document.createElement("button");
