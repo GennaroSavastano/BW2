@@ -36,11 +36,17 @@ if (sessionStorage.getItem("artists")) {
 
 // Faccio la fetch degli artisti (nel caso in cui la prima volta non sia stata fatta)
 async function fetchArtists(numArtists, apiUrl, apiKey) {
+  const idArr = [];
   const artists = [];
   let artistCreated = 0;
 
   const fetchSingleArtist = async () => {
     const idArtist = Math.round(Math.random() * 100);
+
+    if (idArr.includes(idArtist)) {
+      idArtist += 50;
+    }
+
     const url = `${apiUrl}artist/${idArtist}`;
     const options = {
       method: "GET",

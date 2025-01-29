@@ -66,7 +66,7 @@ body {
     }
 
     .divgenre {
-      width: 175px;
+      width: 185px;
       flex-grow: 1;
       border-radius: 5px;
       background-color: #d1d1d13b;
@@ -452,12 +452,12 @@ body {
 }
 
 .btn-segui {
-  background-color: transparent; 
-  border-radius: 20px; 
-  width: 75px; 
-  height: 30px; 
+  background-color: transparent;
+  border-radius: 20px;
+  width: 75px;
+  height: 30px;
   border: 1px solid gray;
-  transition: transform 0.s ease;
+  transition: transform 0s ease;
 }
 
 .btn-segui:hover {
