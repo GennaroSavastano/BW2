@@ -11979,6 +11979,19 @@ textarea.form-control-lg {
 body {
   font-family: "Circular", sans-serif;
 }
+body ::-webkit-scrollbar {
+  width: 10px; /* Larghezza della scrollbar */
+}
+body ::-webkit-scrollbar-track {
+  background: transparent;
+}
+body ::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 5px;
+}
+body ::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+}
 body header {
   height: 64px;
   padding-top: 0.5rem;
@@ -12039,6 +12052,7 @@ body main .rowdaily {
   overflow-x: auto;
   white-space: nowrap;
   scroll-behavior: smooth;
+  padding-inline: 6px;
 }
 body main .rowdaily::-webkit-scrollbar {
   display: none;
