@@ -20,7 +20,7 @@ fetch(URL + folder)
 function imgs(artista) {
   const imgArt = document.getElementById("artista");
   console.log(artista[0].picture);
-  imgArt.style.backgroundImage = "url(" + artista[0].picture + ")";
+  imgArt.style.backgroundImage = "url(" + artista[0].picture_xl + ")";
   imgArt.style.backgroundColor = "red";
   imgArt.style.backgroundRepeat = "no-repeat";
   imgArt.style.backgroundSize = "cover";
@@ -58,12 +58,18 @@ function listPopular(popular) {
   for (let i = 0; i < popular.length; i++) {
     containerPopular.innerHTML += `<div class="row m-1">
                                     <div class="col-4 d-flex">
-                                      <span class="align-self-center pe-1">1</span>
+                                      <span class="align-self-center pe-1">${i + 1}</span>
                                       <img src="${popular[i].album.cover}" width="45px" class="mb-2 mx-2 rounded" />
                                       <span>${popular[i].title}</span>
                                     </div>
                                     <div class="col-4 text-end">30.964.869</div>
-                                    <div class="col-4 text-end"><span>3:09</span></div>
+                                    <div class="col-4 text-end"><span>${formatTime(popular[i].duration)}</span></div>
                                   </div>`;
   }
+}
+
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
 }
