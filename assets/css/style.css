@@ -12022,7 +12022,7 @@ body main .myspinner {
   top: 25%;
 }
 body main .divgenre {
-  width: 250px;
+  width: 175px;
   flex-grow: 1;
   border-radius: 5px;
   background-color: rgba(209, 209, 209, 0.231372549);
@@ -12070,7 +12070,7 @@ body main .dailymix {
   font-size: 1.2rem;
 }
 body main .dailymix.dx {
-  left: 70px;
+  left: 68px;
 }
 body main .dailymix01 {
   background: aqua;
@@ -12311,7 +12311,7 @@ body section {
 }
 
 .play-pause-green {
-  width: 39px;
+  width: 49px;
   height: 32px;
   background: #37e189;
   transform: translateY(10px);
