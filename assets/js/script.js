@@ -5,8 +5,36 @@ let idArtist = 0;
 let artistCreated = 0;
 const numArtists = 22;
 const artists = [];
+const daily = document.getElementById("daily");
+const dailyLenght = 6;
+const genre = document.getElementById("genre");
+const randomLenght = dailyLenght + 8;
+const betterArtist = document.getElementById("betterartist");
+const betterArtistLenght = randomLenght + 6;
+const recommendedSongs = [];
+const numSongs = 6;
+let songsCreated = 0;
+const divRecoSongs = document.getElementById("recommendedsongs");
 
-// Faccio la fetch degli artisti
+// Codice per gestione spinner
+const isLoading = function (loadingState) {
+  const spinner = document.querySelector(".spinner-border");
+  if (loadingState) {
+    spinner.classList.remove("d-none");
+  } else {
+    spinner.classList.add("d-none");
+  }
+};
+
+if (sessionStorage.getItem("artists")) {
+  artists.push(JSON.parse(sessionStorage.getItem("artists")));
+  isLoading(false);
+  createDaily(artists[0]);
+} else {
+  fetchArtists(numArtists, myApiUrl, API_KEY);
+}
+
+// Faccio la fetch degli artisti (nel caso in cui la prima volta non sia stata fatta)
 async function fetchArtists(numArtists, apiUrl, apiKey) {
   const artists = [];
   let artistCreated = 0;
@@ -38,17 +66,12 @@ async function fetchArtists(numArtists, apiUrl, apiKey) {
     await fetchSingleArtist();
   }
   isLoading(false);
-  localStorage.setItem("artists", JSON.stringify(artists));
-  //fetchAll(artists, myApiUrl, API_KEY, 0);
+  sessionStorage.setItem("artists", JSON.stringify(artists));
   return createDaily(artists);
 }
 
-fetchArtists(numArtists, myApiUrl, API_KEY);
-
-const daily = document.getElementById("daily");
-const dailyLenght = 6;
-
 function createDaily(artists) {
+  console.log(artists);
   let numArtist = 0;
   for (let i = 0; i < dailyLenght; i++) {
     numArtist = i + 1;
@@ -111,9 +134,6 @@ function createDaily(artists) {
   return createRandom(artists);
 }
 
-const genre = document.getElementById("genre");
-const randomLenght = dailyLenght + 8;
-
 function createRandom(artists) {
   for (let i = dailyLenght; i < randomLenght; i++) {
     const divGenre = document.createElement("div");
@@ -155,9 +175,6 @@ function createRandom(artists) {
   }
   return createBetter(artists);
 }
-
-const betterArtist = document.getElementById("betterartist");
-const betterArtistLenght = randomLenght + 6;
 
 function createBetter(artists) {
   for (let i = randomLenght; i < betterArtistLenght; i++) {
@@ -206,14 +223,17 @@ function createBetter(artists) {
   const h2 = document.getElementById("better");
   h2.classList.add("mt-5", "mb-0", "fs-4");
   h2.innerText = "Il meglio degli artisti";
-  return fetchRecommended(artists, myApiUrl, API_KEY, 0);
+
+  if (sessionStorage.getItem("recommended")) {
+    recommendedSongs.push(JSON.parse(sessionStorage.getItem("recommended")));
+    isLoading(false);
+    createRecommended(recommendedSongs[0]);
+  } else {
+    return fetchRecommended(artists, myApiUrl, API_KEY, 0);
+  }
 }
 
-const recommendedSongs = [];
-const numSongs = 6;
-let songsCreated = 0;
 async function fetchRecommended(artists, apiUrl, apiKey, idSongs) {
-  //const idArtist = artists[idSongs].id;
   const idArtist = Math.round(Math.random() * 100);
   const url = `${apiUrl}artist/${idArtist}/top?limit=1`;
   const options = {
@@ -229,8 +249,6 @@ async function fetchRecommended(artists, apiUrl, apiKey, idSongs) {
       throw new Error(`Errore per l'artista ${idArtist}: ${response.statusText}`);
     }
     const singleSong = await response.json();
-    //console.log(url);
-    //console.log(singleSong.data);
     if (singleSong.total !== 0) {
       recommendedSongs.push(singleSong.data);
       songsCreated++;
@@ -239,21 +257,17 @@ async function fetchRecommended(artists, apiUrl, apiKey, idSongs) {
   } catch (err) {
     console.error(`Errore durante il fetch della canzone per l'artista ${idArtist}: ${err.message}`);
   }
-  /*   while (songsCreated < numSongs) {
-    fetchRecommended(artists, apiUrl, apiKey, idSongs);
-  }
-  return createRecommended(recommendedSongs); */
+
   if (songsCreated !== numSongs) {
-    //setTimeout(() => fetchRecommended(artists, apiUrl, apiKey, idSongs), 2000);
     fetchRecommended(artists, apiUrl, apiKey, idSongs);
   } else {
+    sessionStorage.setItem("recommended", JSON.stringify(recommendedSongs));
     return createRecommended(recommendedSongs);
   }
 }
 
-const divRecoSongs = document.getElementById("recommendedsongs");
-
 function createRecommended(recommendedSongs) {
+  console.log(recommendedSongs);
   for (let i = 0; i < recommendedSongs.length; i++) {
     const colArtist = document.createElement("div");
     colArtist.classList.add("coldaily");
@@ -315,13 +329,3 @@ function createRecommended(recommendedSongs) {
   h2.innerText = "Consigliata per oggi";
   //return fetchRecommended(artists, myApiUrl, API_KEY, 0);
 }
-
-// Codice per gestione spinner
-const isLoading = function (loadingState) {
-  const spinner = document.querySelector(".spinner-border");
-  if (loadingState) {
-    spinner.classList.remove("d-none");
-  } else {
-    spinner.classList.add("d-none");
-  }
-};
