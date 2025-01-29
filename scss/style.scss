@@ -143,6 +143,9 @@ body {
         cursor: pointer;
       }
     }
+    .card-better {
+      margin-top: -30px;
+    }
   }
   section {
     height: 88px;
@@ -385,9 +388,10 @@ body {
   position: relative;
   opacity: 0;
   visibility: hidden;
+  top: 190px;
+  left: 70px;
 }
-
-.play-pause-daily.show {
+.play-pause-card.show {
   opacity: 1;
   transform: translateY(0);
   visibility: visible;

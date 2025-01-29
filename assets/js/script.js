@@ -162,7 +162,7 @@ function createBetter(artists) {
     colArtist.classList.add("coldaily");
 
     const divArtist = document.createElement("div");
-    divArtist.classList.add("d-flex", "align-items-center", "card", "w-100", "border-0");
+    divArtist.classList.add("d-flex", "align-items-center", "card", "w-100", "border-0", "card-better");
 
     const imgArtist = document.createElement("img");
     imgArtist.src = artists[i].picture_medium;
@@ -172,6 +172,14 @@ function createBetter(artists) {
     titleArtist.classList.add("mb-0", "ps-2", "fs-7", "text-secondary", "mt-3");
     titleArtist.innerText = `${artists[i].name}`;
 
+    const playBtn = document.createElement("button");
+    playBtn.classList.add("player-btn", "play-pause-card", "me-2");
+    playBtn.type = "button";
+    playBtn.innerHTML = `<svg data-encore-id="icon" role="img" aria-hidden="true" class="svgplayer" viewBox="0 0 16 16">
+        <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
+      </svg>`;
+
+    divArtist.appendChild(playBtn);
     divArtist.appendChild(imgArtist);
     divArtist.appendChild(titleArtist);
     colArtist.appendChild(divArtist);
@@ -249,7 +257,7 @@ function createRecommended(recommendedSongs) {
     colArtist.classList.add("coldaily");
 
     const divArtist = document.createElement("div");
-    divArtist.classList.add("d-flex", "align-items-center", "card", "w-100", "border-0");
+    divArtist.classList.add("d-flex", "align-items-center", "card", "w-100", "border-0", "card-better");
 
     const imgArtist = document.createElement("img");
     imgArtist.src = recommendedSongs[i][0].album.cover_medium;
@@ -259,6 +267,14 @@ function createRecommended(recommendedSongs) {
     titleArtist.classList.add("mb-0", "ps-2", "fs-7", "text-secondary", "mt-3", "d-flex", "flex-column", "w-100");
     titleArtist.innerHTML = `${recommendedSongs[i][0].title}<span class="text-light">${recommendedSongs[i][0].artist.name}</span>`;
 
+    const playBtn = document.createElement("button");
+    playBtn.classList.add("player-btn", "play-pause-card", "me-2");
+    playBtn.type = "button";
+    playBtn.innerHTML = `<svg data-encore-id="icon" role="img" aria-hidden="true" class="svgplayer" viewBox="0 0 16 16">
+        <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
+      </svg>`;
+
+    divArtist.appendChild(playBtn);
     divArtist.appendChild(imgArtist);
     divArtist.appendChild(titleArtist);
     colArtist.appendChild(divArtist);
@@ -266,6 +282,20 @@ function createRecommended(recommendedSongs) {
     divRecoSongs.classList.remove("d-none");
     divRecoSongs.classList.add("d-flex");
     divRecoSongs.appendChild(colArtist);
+
+    colArtist.style.cursor = "pointer";
+
+    colArtist.addEventListener("mouseover", () => {
+      playBtn.classList.add("show");
+    });
+
+    colArtist.addEventListener("mouseout", () => {
+      playBtn.classList.remove("show");
+    });
+
+    colArtist.addEventListener("click", () => {
+      window.location.href = `artist.html?id=${recommendedSongs[i][0].artist.id}`;
+    });
   }
   const h2 = document.getElementById("recommended");
   h2.classList.remove("d-none");

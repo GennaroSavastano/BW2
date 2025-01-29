@@ -12108,6 +12108,9 @@ body main h2:hover, body main .h2:hover {
   color: #ffffff;
   cursor: pointer;
 }
+body main .card-better {
+  margin-top: -30px;
+}
 body section {
   height: 88px;
 }
@@ -12342,9 +12345,11 @@ body section {
   position: relative;
   opacity: 0;
   visibility: hidden;
+  top: 190px;
+  left: 70px;
 }
 
-.play-pause-daily.show {
+.play-pause-card.show {
   opacity: 1;
   transform: translateY(0);
   visibility: visible;
