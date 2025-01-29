@@ -12159,7 +12159,6 @@ body section {
 .song-info i {
   font-size: 2rem;
   background: linear-gradient(to right, #3baa7b, #62bc68);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -12223,4 +12222,28 @@ body section {
 .player-footer span {
   font-size: 1.2rem;
   color: #a8a9ab;
+}
+
+.dateOfRelease::before,
+.dateOfRelease::after {
+  content: "•";
+  margin-inline: 5px;
+}
+
+.albumBtnPlay-pause {
+  width: 48px;
+  height: 48px;
+  background-color: #19e58b;
+  border-radius: 50px;
+}
+
+.albumSvgPlay-pause {
+  width: 24px;
+  height: 24px;
+  fill: black;
+}
+
+.albumBtnPlay-a {
+  text-decoration: none;
+  color: #ddd;
 }/*# sourceMappingURL=style.css.map */
