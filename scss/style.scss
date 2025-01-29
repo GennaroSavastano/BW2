@@ -43,6 +43,103 @@ body {
   }
   main {
     height: calc(100vh - 152px);
+
+    .myspinner {
+      position: fixed;
+      left: 47.5%;
+      top: 25%;
+    }
+
+    .divgenre {
+      width: 250px;
+      flex-grow: 1;
+      border-radius: 5px;
+      background-color: #d1d1d13b;
+      overflow: hidden;
+    }
+
+    .divgenre p {
+      font-weight: 600;
+    }
+
+    .imggenre {
+      width: 50px;
+    }
+
+    .rowdaily {
+      flex-wrap: nowrap;
+      overflow: hidden;
+    }
+
+    .coldaily {
+      width: 216px;
+    }
+
+    .dailyinfo {
+      height: 8px;
+    }
+    .imgdaily {
+      max-width: 200px;
+    }
+
+    .dailyicon {
+      position: relative;
+      top: 5px;
+      left: -85px;
+      height: 0;
+    }
+    .dailymix {
+      position: relative;
+      top: 175px;
+      color: #000000;
+      font-weight: 600;
+      padding-inline: 2px;
+      font-size: 1.2rem;
+    }
+    .dailymix01 {
+      background: aqua;
+    }
+    .dailyicon01 {
+      color: aqua;
+    }
+    .dailymix02 {
+      background: yellow;
+    }
+    .dailyicon02 {
+      color: yellow;
+    }
+    .dailymix03 {
+      background: #fa4835;
+    }
+    .dailyicon03 {
+      color: #fa4835;
+    }
+    .dailymix04 {
+      background: #f69cd5;
+    }
+    .dailyicon04 {
+      color: #f69cd5;
+    }
+    .dailymix05 {
+      background: #cef672;
+    }
+    .dailyicon05 {
+      color: #cef672;
+    }
+    .dailymix06 {
+      background: #afb2fd;
+    }
+    .dailyicon06 {
+      color: #afb2fd;
+    }
+    h2 {
+      font-weight: 600;
+      &:hover {
+        text-decoration: underline;
+        color: #ffffff;
+        cursor: pointer;
+      }
+    }
   }
   section {
     height: 88px;
