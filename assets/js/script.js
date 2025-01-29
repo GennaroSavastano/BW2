@@ -36,8 +36,6 @@ async function fetchArtists(numArtists, apiUrl, apiKey) {
   while (artistCreated < numArtists) {
     await fetchSingleArtist();
   }
-
-  console.log("Artisti recuperati:", artists);
   isLoading(false);
   return createDaily(artists);
 }
@@ -83,7 +81,7 @@ function createDaily(artists) {
     daily.appendChild(colArtist);
   }
   const h2 = document.getElementById("foryou");
-  h2.classList.add("mt-5", "mb-0");
+  h2.classList.add("mt-5", "mb-0", "fs-4");
   h2.innerText = "Creato per te";
   return createRandom(artists);
 }
@@ -145,8 +143,37 @@ function createBetter(artists) {
     betterArtist.appendChild(colArtist);
   }
   const h2 = document.getElementById("better");
-  h2.classList.add("mt-5", "mb-0");
+  h2.classList.add("mt-5", "mb-0", "fs-4");
   h2.innerText = "Il meglio degli artisti";
+  return fetchRecommended(artists, myApiUrl, API_KEY);
+}
+
+async function fetchRecommended(artists, apiUrl, apiKey) {
+  const recommendedSongs = [];
+
+  for (const artist of artists) {
+    const idArtist = artist.id;
+    const url = `${apiUrl}artist/${idArtist}/top?limit=1`;
+    const options = {
+      method: "GET",
+      headers: {
+        Authorization: apiKey,
+      },
+    };
+
+    try {
+      const response = await fetch(url, options);
+      if (!response.ok) {
+        throw new Error(`Errore per l'artista ${idArtist}: ${response.statusText}`);
+      }
+      const singleSong = await response.json();
+      recommendedSongs.push(singleSong);
+    } catch (err) {
+      console.error(`Errore durante il fetch per l'artista ${idArtist}: ${err.message}`);
+    }
+  }
+
+  return recommendedSongs; // Restituisce l'elenco di canzoni raccomandate
 }
 
 // Codice per gestione spinner
