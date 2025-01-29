@@ -450,3 +450,17 @@ body {
     font-size: 6rem;
   }
 }
+
+.btn-segui {
+  background-color: transparent; 
+  border-radius: 20px; 
+  width: 75px; 
+  height: 30px; 
+  border: 1px solid gray;
+  transition: transform 0.s ease;
+}
+
+.btn-segui:hover {
+  border-color: white;
+  transform: scale(1.1);
+}

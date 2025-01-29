@@ -76,21 +76,16 @@
                   </div>
                   <h1 class="fw-bold">Artista</h1>
                   <p></p>
-                  <p>n° ascoltatori mensili</p>
+                  <p><span id="fans"></span> ascoltatori</p>
                 </div>
               </div>
               <div id="album" class="d-flex align-items-center gap-5 mt-3">
                 <button class="player-btn play-pause play-green btn btn-lg" type="button" style="height: 60px; width: 60px; background-color: #3be477">
-                  <svg data-encore-id="icon" role="img" aria-hidden="true" class="svgplayer" viewBox="0 0 12 14">
+                  <svg data-encore-id="icon" role="img" aria-hidden="true" class="svgplayer" viewBox="0 0 16 16" style="width: 25px">
                     <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
                   </svg>
                 </button>
-                <button
-                  class="btn-segui fw-bold"
-                  style="background-color: transparent; border-radius: 20px; width: 75px; height: 30px; border-color: gray; border: 1px solid"
-                >
-                  Segui
-                </button>
+                <button class="btn-segui fw-bold">Segui</button>
                 <div class="dropdown">
                   <button
                     class="btn btn-secondary"
@@ -144,53 +139,7 @@
               <div class="d-flex justify-content-between">
                 <div class="d-flex flex-column w-100">
                   <h3>Popolari</h3>
-                  <div class="container-fluid">
-                    <div id="1" class="row m-1">
-                      <div class="col-4 d-flex">
-                        <span class="align-self-center pe-1">1</span>
-                        <img src="assets/imgs/main/image-10.jpg" width="45px" class="mb-2 mx-2 rounded" />
-                        TITOLO CANZONE
-                      </div>
-                      <div class="col-4 text-end">30.964.869</div>
-                      <div class="col-4 text-end"><span>3:09</span></div>
-                    </div>
-                    <div id="2" class="row m-1">
-                      <div class="col-4 d-flex">
-                        <span class="align-self-center pe-1">2</span>
-                        <img src="assets/imgs/main/image-4.jpg" width="45px" class="mb-2 mx-2 rounded" />
-                        TITOLO CANZONE
-                      </div>
-                      <div class="col-4 text-end">30.964.869</div>
-                      <div class="col-4 text-end"><span>3:09</span></div>
-                    </div>
-                    <div id="3" class="row m-1">
-                      <div class="col-4 d-flex">
-                        <span class="align-self-center pe-1">3</span>
-                        <img src="assets/imgs/main/image-4.jpg" width="45px" class="mb-2 mx-2 rounded" />
-                        TITOLO CANZONE
-                      </div>
-                      <div class="col-4 text-end">30.964.869</div>
-                      <div class="col-4 text-end"><span>3:09</span></div>
-                    </div>
-                    <div id="4" class="row m-1">
-                      <div class="col-4 d-flex">
-                        <span class="align-self-center pe-1">4</span>
-                        <img src="assets/imgs/main/image-4.jpg" width="45px" class="mb-2 mx-2 rounded" />
-                        TITOLO CANZONE
-                      </div>
-                      <div class="col-4 text-end">30.964.869</div>
-                      <div class="col-4 text-end"><span>3:09</span></div>
-                    </div>
-                    <div id="5" class="row m-1">
-                      <div class="col-4 d-flex">
-                        <span class="align-self-center pe-1">5</span>
-                        <img src="assets/imgs/main/image-4.jpg" width="45px" class="mb-2 mx-2 rounded" />
-                        TITOLO CANZONE
-                      </div>
-                      <div class="col-4 text-end">30.964.869</div>
-                      <div class="col-4 text-end"><span>3:09</span></div>
-                    </div>
-                  </div>
+                  <div id="containerPopular" class="container-fluid"></div>
                 </div>
                 <div class="justify-content-end">
                   <h3>Selezione dell'artista</h3>
