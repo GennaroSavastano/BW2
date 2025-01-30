@@ -78,8 +78,8 @@ function createTrackList(album) {
                       </button>
                     </div>
                   </div>
-                  <div class="col-2 d-flex align-items-center">
-                    <p>${formatTime2(track.duration)}</p>
+                  <div class="col-2 d-flex align-items-center justify-content-between">
+                    <p class="mb-0">${formatTime2(track.duration)}</p>
                     <div class="dropdown ms-3">
                       <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg data-encore-id="icon" role="img" aria-hidden="true" class="svgicon" viewBox="0 0 24 24">
