@@ -12399,59 +12399,6 @@ body section {
   color: #a8a9ab;
 }
 
-<<<<<<< HEAD
-#artista {
-  background-image: url(https://fastly.picsum.photos/id/355/1250/450.jpg?hmac=lhHdwVcng-ScFe2IDDFSizk6WNT_sHFTCcGVOE_dyic);
-}
-#artista h1, #artista .h1 {
-  font-size: 6rem;
-}
-
-.btn-segui {
-  background-color: transparent;
-  border-radius: 20px;
-  width: 75px;
-  height: 30px;
-  border: 1px solid gray;
-  transition: transform 0s ease;
-}
-
-.btn-segui:hover {
-  border-color: white;
-  transform: scale(1.1);
-}
-
-.carousel {
-  display: flex;
-}
-
-.slick-prev {
-  left: 20px !important;
-  top: 100px !important;
-  z-index: 100;
-}
-
-.slick-next {
-  right: 40px !important;
-  top: 100px !important;
-  z-index: 100;
-}
-
-.slick-prev::before,
-.slick-next::before {
-  font-size: 30px !important;
-  color: #1f1f1f !important;
-}
-
-.slick-prev:hover::before,
-.slick-next:hover::before {
-  font-size: 30px !important;
-  color: red !important;
-}
-
-.slick-track {
-  width: 5000px !important;
-=======
 .dateOfRelease::before,
 .dateOfRelease::after {
   content: "•";
@@ -12474,5 +12421,4 @@ body section {
 .albumBtnPlay-a {
   text-decoration: none;
   color: #ddd;
->>>>>>> album_page
 }/*# sourceMappingURL=style.css.map */
