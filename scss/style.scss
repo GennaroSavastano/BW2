@@ -320,7 +320,7 @@ body {
 .song-info i {
   font-size: 2rem;
   background: linear-gradient(to right, #3baa7b, #62bc68);
-  -webkit-background-clip: text;
+  // -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -445,58 +445,28 @@ body {
   font-size: 1.2rem;
   color: #a8a9ab;
 }
-#artista {
-  background-image: url(https://fastly.picsum.photos/id/355/1250/450.jpg?hmac=lhHdwVcng-ScFe2IDDFSizk6WNT_sHFTCcGVOE_dyic);
+// PAGINA ALBUM
 
-  h1 {
-    font-size: 6rem;
-  }
+.dateOfRelease::before,
+.dateOfRelease::after {
+  content: "•";
+  margin-inline: 5px;
 }
 
-.btn-segui {
-  background-color: transparent;
-  border-radius: 20px;
-  width: 75px;
-  height: 30px;
-  border: 1px solid gray;
-  transition: transform 0s ease;
+.albumBtnPlay-pause {
+  width: 48px;
+  height: 48px;
+  background-color: #19e58b;
+  border-radius: 50px;
 }
 
-.btn-segui:hover {
-  border-color: white;
-  transform: scale(1.1);
+.albumSvgPlay-pause {
+  width: 24px;
+  height: 24px;
+  fill: black;
 }
 
-.carousel {
-  display: flex;
+.albumBtnPlay-a {
+  text-decoration: none;
+  color: #ddd;
 }
-
-.slick-prev {
-  left: 20px !important;
-  top: 100px !important;
-  z-index: 100;
-}
-
-.slick-next {
-  right: 40px !important;
-  top: 100px !important;
-  z-index: 100;
-}
-
-.slick-prev::before,
-.slick-next::before {
-  font-size: 30px !important;
-  color: #1f1f1f !important;
-}
-
-.slick-prev:hover::before,
-.slick-next:hover::before {
-  font-size: 30px !important;
-  color: red !important;
-}
-
-.slick-track {
-  width: 5000px !important;
-}
-
-
