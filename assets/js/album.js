@@ -106,8 +106,8 @@ function createTrackList(album) {
     let enable = "";
 
     trackItem.addEventListener("mouseover", () => {
+      trackItem.classList.add("songMouseOver");
       if (enable !== index + 1) {
-        trackItem.style.backgroundColor = "#2e2e2e";
         const trackNum = document.getElementById(`trackNum${index + 1}`);
         trackNum.classList.add("d-none");
         const albPlay = document.getElementById(`albPlay${index + 1}`);
@@ -116,12 +116,13 @@ function createTrackList(album) {
         albPlus.classList.remove("d-none");
         const trackDrop = document.getElementById(`trackDrop${index + 1}`);
         trackDrop.classList.remove("invisible");
+      } else {
       }
     });
 
     trackItem.addEventListener("mouseout", () => {
+      trackItem.classList.remove("songMouseOver");
       if (enable !== index + 1) {
-        trackItem.style.backgroundColor = "inherit";
         const trackNum = document.getElementById(`trackNum${index + 1}`);
         trackNum.classList.remove("d-none");
         const albPlay = document.getElementById(`albPlay${index + 1}`);
@@ -135,6 +136,7 @@ function createTrackList(album) {
 
     trackItem.addEventListener("click", () => {
       enable = index + 1;
+      console.log(enable);
       const allRows = document.querySelectorAll(".trackItem");
       allRows.forEach((ele) => ele.classList.remove("songActive"));
 
