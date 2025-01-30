@@ -12474,4 +12474,22 @@ body section {
 .albumBtnPlay-a {
   text-decoration: none;
   color: #ddd;
+}
+
+.cardAlbum {
+  padding: 10px;
+  transition: 0.2s linear;
+  border: none;
+}
+.cardAlbum img {
+  border-radius: 8px;
+}
+
+.card-body {
+  padding: 8px 5px 5px;
+}
+
+.row {
+  padding: 3px;
+  border-radius: 8px;
 }/*# sourceMappingURL=style.css.map */

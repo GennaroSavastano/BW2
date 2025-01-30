@@ -525,3 +525,28 @@ body {
   text-decoration: none;
   color: #ddd;
 }
+
+
+// artista card
+
+.cardAlbum {
+  padding: 10px;
+  transition: 0.2s linear;
+  border: none;
+  img{
+    border-radius: 8px;
+  }
+  
+}
+.card-body{
+  padding: 8px 5px 5px;
+ 
+}
+
+// artista popolari
+
+.row {
+  padding: 3px;
+  border-radius: 8px;
+ 
+}

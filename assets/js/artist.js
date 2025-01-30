@@ -57,17 +57,20 @@ function listPopular(popular) {
   // titolo1.innerText = popular[0][0].title;
   for (let i = 0; i < popular.length; i++) {
     containerPopular.innerHTML += `<div class="row m-1">
-                                    <div class="col-4 d-flex">
+                                    <div class="col-4 d-flex align-items-center">
                                       <span class="align-self-center pe-1">${i + 1}</span>
-                                      <img src="${popular[i].album.cover}" width="45px" class="mb-2 mx-2 rounded" />
-                                      <span>${popular[i].title}</span>
+                                      <img src="${popular[i].album.cover}" width="45px" height="45" class="mb-2 mx-2 rounded" />
+                                      <span class="fs-6">${popular[i].title}</span>
                                     </div>
-                                    <div class="col-4 text-end">${parseInt(popular[i].rank).toLocaleString(
-                                      "it-IT"
-                                    )}</div>
+                                    <div class="col-4 text-end">${parseInt(popular[i].rank).toLocaleString("it-IT")}</div>
                                     <div class="col-4 text-end"><span>${formatTime(popular[i].duration)}</span></div>
                                   </div>`;
   }
+
+  document.querySelectorAll("#containerPopular .row").forEach((row) => {
+    row.addEventListener("mouseover", () => (row.style.backgroundColor = "#2f3235"));
+    row.addEventListener("mouseout", () => (row.style.backgroundColor = "transparent"));
+  });
 }
 
 function formatTime(seconds) {
@@ -123,12 +126,12 @@ function createCard(albums) {
         col.classList.add("col-2");
 
         const card = document.createElement("div");
-        card.classList.add("card");
+        card.classList.add("card", "cardAlbum");
         card.addEventListener("mouseover", () => {
-          cardLink.classList.remove("d-none");
+          card.style.backgroundColor = "#2f3235";
         });
         card.addEventListener("mouseout", () => {
-          cardLink.classList.add("d-none");
+          card.style.backgroundColor = "transparent";
         });
 
         const imgCard = document.createElement("img");
@@ -140,15 +143,15 @@ function createCard(albums) {
         divBody.classList.add("card-body");
 
         const cardH5 = document.createElement("h5");
-        cardH5.classList.add("card-title");
+        cardH5.classList.add("card-title", "fs-7");
         cardH5.innerText = albumCardList.title;
 
         const cardP = document.createElement("p");
-        cardP.classList.add("card-text", "cardP");
+        cardP.classList.add("card-text", "cardP", "fs-7");
         cardP.innerText = albumCardList.release_date;
 
         const cardLink = document.createElement("a");
-        cardLink.classList.add("btn", "btn-primary", "d-none", "stretched-link");
+        cardLink.classList.add("btn", "bg-secondary", "d-none", "stretched-link");
         cardLink.href = "album.html?albumId=" + albumCardList.id;
         cardLink.innerText = "camillo";
 
