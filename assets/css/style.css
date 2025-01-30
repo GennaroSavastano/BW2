@@ -12490,4 +12490,8 @@ body section {
 
 #hourspan {
   font-size: 0.75rem;
+}
+
+#arrow {
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
