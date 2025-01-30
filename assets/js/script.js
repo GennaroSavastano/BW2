@@ -420,6 +420,15 @@ library.addEventListener("click", () => {
 });
 
 arrow.addEventListener("click", () => {
-  // if ()
-  leftBar.classList.add("col-6");
+  if (leftBar.classList.contains("col-3")) {
+    leftBar.classList.remove("col-3");
+    leftBar.classList.add("col-6");
+    rightBar.classList.add("d-none");
+    arrow.innerHTML = `<i class="bi bi-arrow-left fs-5"></i>`;
+  } else {
+    leftBar.classList.add("col-3");
+    leftBar.classList.remove("col-6");
+    rightBar.classList.remove("d-none");
+    arrow.innerHTML = `<i class="bi bi-arrow-right fs-5"></i>`;
+  }
 });
