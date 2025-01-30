@@ -396,10 +396,10 @@ const plus = document.querySelector("#plus");
 const arrow = document.querySelector("#arrow");
 
 library.addEventListener("click", () => {
-  if (leftBar.classList.contains("col-1")) {
+  if (leftBar.classList.contains("minleftbar")) {
     leftBar.classList.add("col-3");
     contentMusic.classList.remove("grow1");
-    leftBar.classList.remove("col-1");
+    leftBar.classList.remove("minleftbar");
     spanlibrary.classList.remove("d-none");
     library.parentElement.classList.remove("flex-column", "align-items-center");
     plus.classList.add("mx-5");
@@ -407,7 +407,7 @@ library.addEventListener("click", () => {
     arrow.classList.remove("d-none");
   } else {
     leftBar.classList.remove("col-3");
-    leftBar.classList.add("col-1");
+    leftBar.classList.add("minleftbar");
     contentMusic.classList.add("grow1");
     spanlibrary.classList.add("d-none");
     library.parentElement.classList.add("flex-column", "align-items-center");

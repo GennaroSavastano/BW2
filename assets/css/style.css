@@ -12456,6 +12456,10 @@ body section {
   flex-grow: 1;
 }
 
+.minleftbar {
+  width: 90px;
+}
+
 .dateOfRelease::before,
 .dateOfRelease::after {
   content: "•";
