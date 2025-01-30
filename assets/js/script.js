@@ -418,3 +418,8 @@ library.addEventListener("click", () => {
     podcast.classList.add("d-none");
   }
 });
+
+arrow.addEventListener("click", () => {
+  // if ()
+  leftBar.classList.add("col-6");
+});
