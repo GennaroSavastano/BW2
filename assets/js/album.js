@@ -53,9 +53,9 @@ function createTrackList(album) {
 
   album.tracks.data.forEach((track, index) => {
     const trackItem = document.createElement("div");
-    trackItem.classList.add = ("row", "d-flex", "justify-content-between");
+    trackItem.classList.add("row", "d-flex", "justify-content-between", "align-items-center");
     trackItem.innerHTML = `<div class="col-auto d-flex flex-column align-items-center">
-                    <p class="ms-3">${[index] + 1}</p>
+                    <p class="ms-3 mb-0">${[index] + 1}</p>
                     <button class="border-0 bg-transparent fs-2 d-none" type="button">
                       <i class="bi bi-play-fill"></i>
                     </button>
