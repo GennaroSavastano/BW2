@@ -55,7 +55,7 @@
                   <li><a class="dropdown-item" href="#">Action</a></li>
                   <li><a class="dropdown-item" href="#">Another action</a></li>
                   <li><hr class="dropdown-divider" /></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><a href="#" class="dropdown-item" id="friendstasks">Attività amici</a></li>
                 </ul>
               </div>
             </div>
@@ -66,10 +66,98 @@
     <main>
       <div class="container-fluid h-100 px-2">
         <div class="row h-100 g-2">
-          <div class="col-3 h-100">
-            <div class="container-fluid bg-dark h-100 rounded"></div>
+          <div class="col-3 h-100 rounded" id="leftsidebar">
+            <div class="container-fluid bg-dark h-100 overflow-y-auto bg-dark rounded d-flex flex-column">
+              <div class="pt-4 d-flex justify-content-between">
+                <div class="d-flex">
+                  <button type="button" class="btn d-flex" id="yourlibrary">
+                    <svg
+                      data-encore-id="icon"
+                      role="img"
+                      aria-hidden="true"
+                      class="svgicon text-secondary"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6.464a1 1 0 0 0-.5-.866l-6-3.464zM9 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 0 0 0-1-1z"
+                      ></path>
+                    </svg>
+                  </button>
+                  <span class="fw-bold text-secondary ms-2">La tua libreria</span>
+                </div>
+
+                <div class="mx-5 d-flex" id="plus">
+                  <div class="dropdown">
+                    <a class="nav-link show" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                      <span class="user"><i class="bi bi-plus-lg fs-5"></i></span>
+                    </a>
+
+                    <ul
+                      class="dropdown-menu"
+                      style="
+                        position: absolute;
+                        inset: 0px 0px auto auto;
+                        margin: 0px;
+                        transform: translate3d(0.666667px, 26px, 0px);
+                      "
+                      data-popper-placement="bottom-end"
+                    >
+                      <li class="addplaylist">
+                        <a class="dropdown-item" href="#">
+                          <svg
+                            data-encore-id="icon"
+                            role="img"
+                            aria-hidden="true"
+                            class="svgicon d-inline"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M2 0v2H0v1.5h2v2h1.5v-2h2V2h-2V0H2zm11.5 2.5H8.244A5.482 5.482 0 0 0 7.966 1H15v11.75A2.75 2.75 0 1 1 12.25 10h1.25V2.5zm0 9h-1.25a1.25 1.25 0 1 0 1.25 1.25V11.5zM4 8.107a5.465 5.465 0 0 0 1.5-.593v5.236A2.75 2.75 0 1 1 2.75 10H4V8.107zM4 11.5H2.75A1.25 1.25 0 1 0 4 12.75V11.5z"
+                            ></path>
+                          </svg>
+
+                          <span>Crea una nuova playlist</span>
+                        </a>
+                      </li>
+
+                      <li class="addplaylist">
+                        <a class="dropdown-item" href="#">
+                          <svg
+                            data-encore-id="icon"
+                            role="img"
+                            aria-hidden="true"
+                            class="svgicon d-inline"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M1.75 1A1.75 1.75 0 0 0 0 2.75v11.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0 0 16 14.25v-9.5A1.75 1.75 0 0 0 14.25 3H7.82l-.65-1.125A1.75 1.75 0 0 0 5.655 1H1.75zM1.5 2.75a.25.25 0 0 1 .25-.25h3.905a.25.25 0 0 1 .216.125L6.954 4.5h7.296a.25.25 0 0 1 .25.25v9.5a.25.25 0 0 1-.25.25H1.75a.25.25 0 0 1-.25-.25V2.75z"
+                            ></path>
+                          </svg>
+
+                          <span> Crea una cartella playlist</span></a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="ps-3" id="arrow">
+                    <i class="bi bi-arrow-right fs-5"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-3 bg-dark-subtle p-3 rounded-2" id="makeplaylist">
+                <p class="fw-bold">Crea la tua prima playlist</p>
+                <p>È facile, ti aiuteremo</p>
+                <button class="btn btn-light px-3 py-1 rounded-4 fw-bold">Crea playlist</button>
+              </div>
+
+              <div class="mt-3 bg-dark-subtle p-3 rounded-2" id="podcast">
+                <p class="fw-bold">Cerca qualche podcast da seguire</p>
+                <p>Ti aggiorneremo sui nuovi episodi</p>
+                <button class="btn btn-light px-3 py-1 rounded-4 fw-bold">Sfoglia i podcast</button>
+              </div>
+            </div>
           </div>
-          <div class="col-6 h-100">
+          <div class="col-6 h-100 bg-dark rounded overflow-y-auto p-0 grow1" id="contentmusic">
             <div class="overflow-y-auto container-fluid bg-dark h-100 rounded" style="height: 492px">
               <!-- ALBUM INFO -->
               <div id="albumInfo" class="row d-flex flex-row p-1 m-0" style="height: 186px">
@@ -251,8 +339,76 @@
               </div>
             </div>
           </div>
-          <div class="col-3 h-100">
-            <div class="container-fluid bg-dark h-100 rounded"></div>
+          <div class="col-3 h-100" id="rightsidebar">
+            <div class="container-fluid bg-dark h-100 rounded">
+              <div class="d-flex justify-content-between pt-4">
+                <p class="fw-bold">Attività amici</p>
+                <div>
+                  <button class="btn"><i class="bi bi-person-add px-2"></i></button>
+                  <button class="btn" id="closePanel"><i class="bi bi-x-lg e-3"></i></button>
+                </div>
+              </div>
+              <div class="d-flex">
+                <div>
+                  <img
+                    src="https://cdn-images.dzcdn.net/images/cover/76f822ba0bb8ab66722a8530dd5dfa74/250x250-000000-80-0-0.jpg"
+                    alt="image"
+                    height="30"
+                    class="rounded-5"
+                  />
+                </div>
+                <div class="d-flex flex-column">
+                  <div class="d-flex justify-content-between">
+                    <span class="fw-bold ms-2 mb-0 pb-0">Timoteo Capurro</span>
+                    <span id="hourspan">2 ore</span>
+                  </div>
+                  <div id="artist-songs">
+                    <p class="m-0 p-0 ms-2 mt-1">Right here Right Now • Fatboy Slim</p>
+                    <p class="m-0 p-0 ms-1 mt-1"><i class="bi bi-music-note-beamed me-2"></i>The greatest hits</p>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex mt-4">
+                <div>
+                  <img
+                    src="https://cdn-images.dzcdn.net/images/cover/aa191faaa0ab9654288ecdf7af9fd8ee/250x250-000000-80-0-0.jpg"
+                    alt="image"
+                    height="30"
+                    class="rounded-5"
+                  />
+                </div>
+                <div class="d-flex flex-column">
+                  <div class="d-flex justify-content-between">
+                    <span class="fw-bold ms-2 mb-0 pb-0">Silvia Franzinelli</span>
+                    <span id="hourspan" class="ms-5">5 ore</span>
+                  </div>
+                  <div id="artist-songs">
+                    <p class="m-0 p-0 ms-2 mt-1">What I like about you • Lilix</p>
+                    <p class="m-0 p-0 ms-1 mt-1"><i class="bi bi-music-note-beamed me-2"></i>Falling uphill</p>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex mt-4">
+                <div>
+                  <img
+                    src="https://cdn-images.dzcdn.net/images/cover/b89c20012cccb051c8a4e04d98386f95/250x250-000000-80-0-0.jpg"
+                    alt="image"
+                    height="30"
+                    class="rounded-5"
+                  />
+                </div>
+                <div class="d-flex flex-column">
+                  <div class="d-flex justify-content-between">
+                    <span class="fw-bold ms-2 mb-0 pb-0">Juliet Asiamah</span>
+                    <span id="hourspan" class="ms-5">7 ore</span>
+                  </div>
+                  <div id="artist-songs">
+                    <p class="m-0 p-0 ms-2 mt-1">Yeah! • Usher</p>
+                    <p class="m-0 p-0 ms-1 mt-1"><i class="bi bi-music-note-beamed me-2"></i>Confessions</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -397,5 +553,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./assets/js/album.js"></script>
+    <script src="./assets/js/panels.js"></script>
   </body>
 </html>
