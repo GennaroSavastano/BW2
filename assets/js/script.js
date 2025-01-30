@@ -380,13 +380,11 @@ const contentMusic = document.getElementById("contentmusic");
 
 closePanel.addEventListener("click", () => {
   rightBar.classList.add("d-none");
-  contentMusic.classList.add("grow1");
 });
 
 const friendstasks = document.querySelector("#friendstasks");
 friendstasks.addEventListener("click", () => {
   rightBar.classList.remove("d-none");
-  contentMusic.classList.remove("grow1");
 });
 
 const library = document.querySelector("#yourlibrary");
@@ -400,7 +398,6 @@ const podcast = document.querySelector("#podcast");
 library.addEventListener("click", () => {
   if (leftBar.classList.contains("minleftbar")) {
     leftBar.classList.add("col-3");
-    contentMusic.classList.remove("grow1");
     leftBar.classList.remove("minleftbar");
     spanlibrary.classList.remove("d-none");
     library.parentElement.classList.remove("flex-column", "align-items-center");
@@ -412,7 +409,6 @@ library.addEventListener("click", () => {
   } else {
     leftBar.classList.remove("col-3");
     leftBar.classList.add("minleftbar");
-    contentMusic.classList.add("grow1");
     spanlibrary.classList.add("d-none");
     library.parentElement.classList.add("flex-column", "align-items-center");
     plus.classList.remove("mx-5");
