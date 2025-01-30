@@ -12482,4 +12482,12 @@ body section {
 .albumBtnPlay-a {
   text-decoration: none;
   color: #ddd;
+}
+
+#artist-songs {
+  font-size: 0.75rem;
+}
+
+#hourspan {
+  font-size: 0.75rem;
 }/*# sourceMappingURL=style.css.map */
