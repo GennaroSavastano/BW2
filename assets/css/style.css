@@ -12058,7 +12058,7 @@ body main .rowdaily::-webkit-scrollbar {
   display: none;
 }
 body main .coldaily {
-  width: 216px;
+  width: 216px !important;
 }
 body main .space-normal {
   white-space: normal;
@@ -12418,4 +12418,50 @@ body section {
 .btn-segui:hover {
   border-color: white;
   transform: scale(1.1);
+}
+
+.carousel {
+  display: flex;
+}
+
+.slick-prev {
+  left: 20px !important;
+  top: 100px !important;
+  z-index: 100;
+}
+
+.slick-next {
+  right: 40px !important;
+  top: 100px !important;
+  z-index: 100;
+}
+
+.slick-prev::before {
+  content: "<" !important;
+  color: #fff !important;
+  font-size: 31px !important;
+  opacity: 1 !important;
+  background-color: #222222;
+  vertical-align: middle;
+  /* line-height: 0 !important; */
+  padding-inline: 10px;
+  padding-bottom: 9px;
+  border-radius: 50%;
+}
+
+.slick-next::before {
+  content: ">" !important;
+  color: #fff !important;
+  font-size: 31px !important;
+  opacity: 1 !important;
+  background-color: #222222;
+  vertical-align: middle;
+  /* line-height: 0 !important; */
+  padding-inline: 10px;
+  padding-bottom: 9px;
+  border-radius: 50%;
+}
+
+.slick-track {
+  width: 2000px !important;
 }/*# sourceMappingURL=style.css.map */
