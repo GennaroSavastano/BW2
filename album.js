@@ -21,20 +21,27 @@ fetch(URL, {
     console.log(album);
   });
 
-<div id="albumInfo" class="row d-flex flex-row p-1 m-0" style="height: 186px">
-  <div class="col-auto p-0 d-flex flex-column justify-content-end me-3">
-    <button class="p-0 border border-0">
-      <img style="max-width: 128px" src="./assets/imgs/main/image-15.jpg" alt="" />
-    </button>
-  </div>
-  <div class="col p-0 d-flex flex-column justify-content-end">
-    <p class="m-0">Album</p>
-    <h1 class="m-0 text-uppercase fw-bold fs-4">Titolo Album</h1>
-    <div class="m-0 d-flex align-items-baseline">
-      <img class="m-0 border border-rounded" src="" alt="" />
-      <h2 class="m-0 fs-5">Autore</h2>
-      <p class="m-0 dateOfRelease">Anno</p>
-      <p class="m-0"># brani, durata totale in min. sec.</p>
-    </div>
-  </div>
-</div>;
+const albumInfo = document.getElementById("albumInfo");
+
+function createAlbumInfo(album) {
+  const albumImg = document.getElementById("albumImg");
+  albumImg.src = `${album.cover_medium}`;
+
+  const albumName = document.getElementById("albumName");
+  albumName.innerText = `${album.title}`;
+
+  const authorName = document.getElementById("authorName");
+  authorName.innerText = `${album.artist.name}`;
+
+  const dateOfRelease = document.getElementById("dateOfRelease");
+  dateOfRelease.innerText = `${album.releae_date}`;
+
+  const trackNumAndTime = document.getElementById("trackNumAndTime");
+  trackNumAndTime.innerText = `${album.nb_tracks} + "," + ${formatTime(album.duration)}`;
+}
+
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  return `${minutes} +"min"+  ${remainingSeconds.toString().padStart(2, "0")}+"sec."`;
+}
