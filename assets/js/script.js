@@ -400,7 +400,7 @@ library.addEventListener("click", () => {
     leftBar.classList.add("col-3");
     leftBar.classList.remove("minleftbar");
     spanlibrary.classList.remove("d-none");
-    library.parentElement.classList.remove("flex-column", "align-items-center");
+    library.parentElement.parentElement.classList.remove("flex-column", "align-items-center");
     plus.classList.add("mx-5");
     plus.classList.remove("mt-2");
     arrow.classList.remove("d-none");
@@ -410,7 +410,7 @@ library.addEventListener("click", () => {
     leftBar.classList.remove("col-3");
     leftBar.classList.add("minleftbar");
     spanlibrary.classList.add("d-none");
-    library.parentElement.classList.add("flex-column", "align-items-center");
+    library.parentElement.parentElement.classList.add("flex-column", "align-items-center");
     plus.classList.remove("mx-5");
     plus.classList.add("mt-2");
     arrow.classList.add("d-none");
