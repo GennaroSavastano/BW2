@@ -401,7 +401,7 @@ library.addEventListener("click", () => {
     contentMusic.classList.remove("grow1");
     leftBar.classList.remove("col-1");
     spanlibrary.classList.remove("d-none");
-    library.parentElement.classList.remove("flex-column");
+    library.parentElement.classList.remove("flex-column", "align-items-center");
     plus.classList.add("mx-5");
     plus.classList.remove("mt-2");
     arrow.classList.remove("d-none");
@@ -410,7 +410,7 @@ library.addEventListener("click", () => {
     leftBar.classList.add("col-1");
     contentMusic.classList.add("grow1");
     spanlibrary.classList.add("d-none");
-    library.parentElement.classList.add("flex-column");
+    library.parentElement.classList.add("flex-column", "align-items-center");
     plus.classList.remove("mx-5");
     plus.classList.add("mt-2");
     arrow.classList.add("d-none");
