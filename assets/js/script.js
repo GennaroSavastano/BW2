@@ -394,6 +394,8 @@ const leftBar = document.querySelector("#leftsidebar");
 const spanlibrary = document.querySelector("#yourlibrary + span");
 const plus = document.querySelector("#plus");
 const arrow = document.querySelector("#arrow");
+const makeplaylist = document.querySelector("#makeplaylist");
+const podcast = document.querySelector("#podcast");
 
 library.addEventListener("click", () => {
   if (leftBar.classList.contains("minleftbar")) {
@@ -405,6 +407,8 @@ library.addEventListener("click", () => {
     plus.classList.add("mx-5");
     plus.classList.remove("mt-2");
     arrow.classList.remove("d-none");
+    makeplaylist.classList.remove("d-none");
+    podcast.classList.remove("d-none");
   } else {
     leftBar.classList.remove("col-3");
     leftBar.classList.add("minleftbar");
@@ -414,5 +418,7 @@ library.addEventListener("click", () => {
     plus.classList.remove("mx-5");
     plus.classList.add("mt-2");
     arrow.classList.add("d-none");
+    makeplaylist.classList.add("d-none");
+    podcast.classList.add("d-none");
   }
 });
