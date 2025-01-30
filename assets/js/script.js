@@ -373,3 +373,12 @@ $(".carousel").slick({
     // instead of a settings object
   ],
 });
+
+const closePanel = document.getElementById("closePanel");
+const rightBar = document.getElementById("rightbar");
+const contentMusic = document.getElementById("contentmusic");
+
+closePanel.addEventListener("click", () => {
+  rightBar.classList.add("d-none");
+  contentMusic.classList.add("grow1");
+});

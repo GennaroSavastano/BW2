@@ -12452,6 +12452,10 @@ body section {
   width: 5000px !important;
 }
 
+.grow1 {
+  flex-grow: 1;
+}
+
 .dateOfRelease::before,
 .dateOfRelease::after {
   content: "•";
