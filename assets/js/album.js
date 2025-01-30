@@ -1,9 +1,10 @@
 const params = new URLSearchParams(window.location.search);
 const albumId = params.get("albumId") || "125219";
 
-const URL = `https://striveschool-api.herokuapp.com/api/deezer/album/${albumId}`;
+const URL = `https://striveschool-api.herokuapp.com/api/deezer/`;
+let folderUrl = `album/${albumId}`;
 
-fetch(URL, {
+fetch(URL + folderUrl, {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
@@ -21,6 +22,7 @@ fetch(URL, {
     console.log(album);
     createAlbumInfo(album);
     createTrackList(album);
+    fetchOtherAlbums(album);
   });
 
 const albumInfo = document.getElementById("albumInfo");
@@ -163,6 +165,100 @@ function createTrackList(album) {
       trackDrop.classList.remove("invisible");
     });
   });
+}
+
+///// Codice copiato da Silvia
+
+function fetchOtherAlbums(album) {
+  folderUrl = `artist/${album.artist.id}/top?limit=50`;
+  const albums = [];
+  fetch(URL + folderUrl)
+    .then((resp) => {
+      if (resp.ok) {
+        return resp.json();
+      } else {
+        throw new Error("Ci dispiace non siamo riusciti a recuperare l'artista");
+      }
+    })
+    .then((albumList) => {
+      const listAlbum = [...albumList.data];
+      console.log(listAlbum[0].album.id);
+      listAlbum.forEach((ele) => {
+        // console.log(ele.album.id);
+        if (!albums.includes(ele.album.id)) {
+          albums.push(ele.album.id);
+        }
+      });
+      console.log(albums);
+
+      createCard(albums);
+    });
+
+  const cardAlbums = [];
+
+  function createCard(albums) {
+    const cardDiscografia = document.getElementById("discografia");
+    for (let i = 0; i < 6; i++) {
+      let idAlbum = albums[i];
+      let folderAlbum = `album/${idAlbum}`;
+      fetch(URL + folderAlbum)
+        .then((resp) => {
+          if (resp.ok) {
+            return resp.json();
+          } else {
+            throw new Error("Ci dispiace non siamo riusciti a recuperare l'album");
+          }
+        })
+        .then((albumCardList) => {
+          // const listCardAlbum = [...albumCardList.data];
+          console.log(albumCardList);
+
+          const col = document.createElement("div");
+          col.classList.add("col-2");
+
+          const card = document.createElement("div");
+          card.classList.add("card", "cardAlbum");
+          card.addEventListener("mouseover", () => {
+            card.style.backgroundColor = "#2f3235";
+          });
+          card.addEventListener("mouseout", () => {
+            card.style.backgroundColor = "transparent";
+          });
+
+          const imgCard = document.createElement("img");
+          imgCard.src = albumCardList.cover_medium;
+          imgCard.alt = "cover album";
+          imgCard.classList.add("card-img-top");
+
+          const divBody = document.createElement("div");
+          divBody.classList.add("card-body");
+
+          const cardH5 = document.createElement("h5");
+          cardH5.classList.add("card-title", "fs-7");
+          cardH5.innerText = albumCardList.title;
+
+          const cardP = document.createElement("p");
+          cardP.classList.add("card-text", "cardP", "fs-7");
+          cardP.innerText = albumCardList.release_date;
+
+          const cardLink = document.createElement("a");
+          cardLink.classList.add("btn", "bg-secondary", "d-none", "stretched-link");
+          cardLink.href = "album.html?albumId=" + albumCardList.id;
+          cardLink.innerText = "camillo";
+
+          card.appendChild(imgCard);
+          card.appendChild(divBody);
+
+          divBody.appendChild(cardH5);
+          divBody.appendChild(cardP);
+          divBody.appendChild(cardLink);
+
+          col.appendChild(card);
+
+          cardDiscografia.appendChild(col);
+        });
+    }
+  }
 }
 
 function formatTime2(seconds) {
