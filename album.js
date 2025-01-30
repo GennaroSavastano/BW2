@@ -19,29 +19,30 @@ fetch(URL, {
   })
   .then((album) => {
     console.log(album);
+    createAlbumInfo(album);
   });
 
 const albumInfo = document.getElementById("albumInfo");
 
 function createAlbumInfo(album) {
   const albumImg = document.getElementById("albumImg");
-  albumImg.src = `${album.cover_medium}`;
+  albumImg.src = album.cover_medium;
 
   const albumName = document.getElementById("albumName");
-  albumName.innerText = `${album.title}`;
+  albumName.innerText = album.title;
 
   const authorName = document.getElementById("authorName");
-  authorName.innerText = `${album.artist.name}`;
+  authorName.innerText = album.artist.name;
 
   const dateOfRelease = document.getElementById("dateOfRelease");
-  dateOfRelease.innerText = `${album.releae_date}`;
+  dateOfRelease.innerHTML = new Date(album.release_date).getFullYear();
 
   const trackNumAndTime = document.getElementById("trackNumAndTime");
-  trackNumAndTime.innerText = `${album.nb_tracks} + "," + ${formatTime(album.duration)}`;
+  trackNumAndTime.innerText = `${album.nb_tracks} brani , ${formatTime(album.duration)}`;
 }
 
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;
-  return `${minutes} +"min"+  ${remainingSeconds.toString().padStart(2, "0")}+"sec."`;
+  return `${minutes} min ${remainingSeconds.toString().padStart(2, "0")} sec.`;
 }
