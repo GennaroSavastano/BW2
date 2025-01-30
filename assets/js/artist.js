@@ -62,7 +62,9 @@ function listPopular(popular) {
                                       <img src="${popular[i].album.cover}" width="45px" class="mb-2 mx-2 rounded" />
                                       <span>${popular[i].title}</span>
                                     </div>
-                                    <div class="col-4 text-end">${parseInt(popular[i].rank).toLocaleString("it-IT")}</div>
+                                    <div class="col-4 text-end">${parseInt(popular[i].rank).toLocaleString(
+                                      "it-IT"
+                                    )}</div>
                                     <div class="col-4 text-end"><span>${formatTime(popular[i].duration)}</span></div>
                                   </div>`;
   }
@@ -147,7 +149,7 @@ function createCard(albums) {
 
         const cardLink = document.createElement("a");
         cardLink.classList.add("btn", "btn-primary", "d-none", "stretched-link");
-        cardLink.href = "album.html?id=" + albumCardList.id;
+        cardLink.href = "album.html?albumId=" + albumCardList.id;
         cardLink.innerText = "camillo";
 
         card.appendChild(imgCard);
