@@ -82,11 +82,11 @@ body {
     }
 
     .rowdaily {
-      flex-wrap: nowrap;
+      //flex-wrap: nowrap;
       overflow-x: auto;
       white-space: nowrap;
       scroll-behavior: smooth;
-      padding-inline: 6px;
+      padding-left: 6px;
     }
 
     .rowdaily::-webkit-scrollbar {
@@ -116,6 +116,7 @@ body {
     .dailymix {
       position: relative;
       top: 175px;
+      left: 12px;
       color: #000000;
       font-weight: 600;
       padding-inline: 2px;

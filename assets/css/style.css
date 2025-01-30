@@ -12048,11 +12048,10 @@ body main .imggenre {
   width: 50px;
 }
 body main .rowdaily {
-  flex-wrap: nowrap;
   overflow-x: auto;
   white-space: nowrap;
   scroll-behavior: smooth;
-  padding-inline: 6px;
+  padding-left: 6px;
 }
 body main .rowdaily::-webkit-scrollbar {
   display: none;
@@ -12078,6 +12077,7 @@ body main .dailyicon {
 body main .dailymix {
   position: relative;
   top: 175px;
+  left: 12px;
   color: #000000;
   font-weight: 600;
   padding-inline: 2px;
