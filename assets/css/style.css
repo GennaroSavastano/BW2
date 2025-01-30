@@ -12059,6 +12059,10 @@ body main .rowdaily::-webkit-scrollbar {
 body main .coldaily {
   width: 216px !important;
 }
+body main .widthcard {
+  height: 285px;
+  transition: 0.1s linear;
+}
 body main .space-normal {
   white-space: normal;
 }

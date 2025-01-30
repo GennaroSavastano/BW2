@@ -86,7 +86,7 @@ function createDaily(artists) {
     colArtist.classList.add("coldaily", "item");
 
     const divArtist = document.createElement("div");
-    divArtist.classList.add("d-flex", "align-items-center", "card", "w-100", "border-0");
+    divArtist.classList.add("d-flex", "align-items-center", "card", "w-100", "border-0", "widthcard");
 
     const dailyMix = document.createElement("div", "text-truncate");
     dailyMix.classList.add("d-flex", "justify-content-between", "w-100", "align-items-center", "dailyinfo");
@@ -124,10 +124,12 @@ function createDaily(artists) {
 
     colArtist.addEventListener("mouseover", () => {
       playBtn.classList.add("show");
+      divArtist.style.background = "#2f3235";
     });
 
     colArtist.addEventListener("mouseout", () => {
       playBtn.classList.remove("show");
+      divArtist.style.background = "transparent";
     });
 
     colArtist.addEventListener("click", () => {
@@ -188,7 +190,7 @@ function createBetter(artists) {
     colArtist.classList.add("coldaily");
 
     const divArtist = document.createElement("div");
-    divArtist.classList.add("d-flex", "align-items-center", "card", "w-100", "border-0", "card-better");
+    divArtist.classList.add("d-flex", "align-items-center", "card", "w-100", "border-0", "card-better", "widthcard");
 
     const imgArtist = document.createElement("img");
     imgArtist.src = artists[i].picture_medium;
@@ -216,10 +218,12 @@ function createBetter(artists) {
 
     colArtist.addEventListener("mouseover", () => {
       playBtn.classList.add("show");
+      divArtist.style.background = "#2f3235";
     });
 
     colArtist.addEventListener("mouseout", () => {
       playBtn.classList.remove("show");
+      divArtist.style.background = "transparent";
     });
 
     colArtist.addEventListener("click", () => {
@@ -279,7 +283,7 @@ function createRecommended(recommendedSongs) {
     colArtist.classList.add("coldaily");
 
     const divArtist = document.createElement("div");
-    divArtist.classList.add("d-flex", "align-items-center", "card", "w-100", "border-0", "card-better");
+    divArtist.classList.add("d-flex", "align-items-center", "card", "w-100", "border-0", "card-better", "widthcard");
 
     const imgArtist = document.createElement("img");
     imgArtist.src = recommendedSongs[i][0].album.cover_medium;
@@ -319,10 +323,12 @@ function createRecommended(recommendedSongs) {
 
     colArtist.addEventListener("mouseover", () => {
       playBtn.classList.add("show");
+      divArtist.style.background = "#2f3235";
     });
 
     colArtist.addEventListener("mouseout", () => {
       playBtn.classList.remove("show");
+      divArtist.style.background = "transparent";
     });
 
     colArtist.addEventListener("click", () => {
