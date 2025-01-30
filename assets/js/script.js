@@ -83,7 +83,7 @@ function createDaily(artists) {
     numArtist = i + 1;
 
     const colArtist = document.createElement("div");
-    colArtist.classList.add("coldaily");
+    colArtist.classList.add("coldaily", "item");
 
     const divArtist = document.createElement("div");
     divArtist.classList.add("d-flex", "align-items-center", "card", "w-100", "border-0");
@@ -340,7 +340,7 @@ function createRecommended(recommendedSongs) {
 
 $(".carousel").slick({
   dots: false,
-  infinite: false,
+  infinite: true,
   speed: 300,
   slidesToShow: 4,
   slidesToScroll: 4,
@@ -348,10 +348,10 @@ $(".carousel").slick({
     {
       breakpoint: 1024,
       settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: true,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        infinite: false,
+        dots: false,
       },
     },
     {
