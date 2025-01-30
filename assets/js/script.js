@@ -375,10 +375,44 @@ $(".carousel").slick({
 });
 
 const closePanel = document.getElementById("closePanel");
-const rightBar = document.getElementById("rightbar");
+const rightBar = document.getElementById("rightsidebar");
 const contentMusic = document.getElementById("contentmusic");
 
 closePanel.addEventListener("click", () => {
   rightBar.classList.add("d-none");
   contentMusic.classList.add("grow1");
+});
+
+const friendstasks = document.querySelector("#friendstasks");
+friendstasks.addEventListener("click", () => {
+  rightBar.classList.remove("d-none");
+  contentMusic.classList.remove("grow1");
+});
+
+const library = document.querySelector("#yourlibrary");
+const leftBar = document.querySelector("#leftsidebar");
+const spanlibrary = document.querySelector("#yourlibrary + span");
+const plus = document.querySelector("#plus");
+const arrow = document.querySelector("#arrow");
+
+library.addEventListener("click", () => {
+  if (leftBar.classList.contains("col-1")) {
+    leftBar.classList.add("col-3");
+    contentMusic.classList.remove("grow1");
+    leftBar.classList.remove("col-1");
+    spanlibrary.classList.remove("d-none");
+    library.parentElement.classList.remove("flex-column");
+    plus.classList.add("mx-5");
+    plus.classList.remove("mt-2");
+    arrow.classList.remove("d-none");
+  } else {
+    leftBar.classList.remove("col-3");
+    leftBar.classList.add("col-1");
+    contentMusic.classList.add("grow1");
+    spanlibrary.classList.add("d-none");
+    library.parentElement.classList.add("flex-column");
+    plus.classList.remove("mx-5");
+    plus.classList.add("mt-2");
+    arrow.classList.add("d-none");
+  }
 });

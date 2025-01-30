@@ -56,7 +56,7 @@
                   <li><a class="dropdown-item" href="#">Action</a></li>
                   <li><a class="dropdown-item" href="#">Another action</a></li>
                   <li><hr class="dropdown-divider" /></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><a class="dropdown-item" id="friendstasks">Attività amici</a></li>
                 </ul>
               </div>
             </div>
@@ -67,10 +67,10 @@
     <main>
       <div class="container-fluid h-100 px-2">
         <div class="row h-100 g-3">
-          <div class="col-3 h-100 rounded leftsidebar">
-            <div class="container-fluid bg-dark h-100 overflow-y-auto bg-dark rounded">
+          <div class="col-3 h-100 rounded" id="leftsidebar">
+            <div class="container-fluid bg-dark h-100 overflow-y-auto bg-dark rounded d-flex flex-column">
               <div class="pt-4 d-flex">
-                <button type="button" class="btn d-flex">
+                <button type="button" class="btn d-flex" id="yourlibrary">
                   <svg
                     data-encore-id="icon"
                     role="img"
@@ -82,11 +82,10 @@
                       d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6.464a1 1 0 0 0-.5-.866l-6-3.464zM9 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 0 0 0-1-1z"
                     ></path>
                   </svg>
-
-                  <p class="fw-bold text-secondary ms-2">La tua libreria</p>
                 </button>
+                <span class="fw-bold text-secondary ms-2">La tua libreria</span>
 
-                <div class="mx-5 d-flex">
+                <div class="mx-5 d-flex" id="plus">
                   <div class="dropdown">
                     <a class="nav-link show" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
                       <span class="user"><i class="bi bi-plus-lg fs-5"></i></span>
@@ -128,7 +127,7 @@
                     </ul>
                   </div>
 
-                  <div class="ps-3"><i class="bi bi-arrow-right fs-5"></i></div>
+                  <div class="ps-3" id="arrow"><i class="bi bi-arrow-right fs-5"></i></div>
                 </div>
               </div>
               <div class="mt-3 bg-dark-subtle p-3 rounded-2">
@@ -174,7 +173,7 @@
               </div>
             </div>
           </div>
-          <div class="col-3 h-100" id="rightbar">
+          <div class="col-3 h-100" id="rightsidebar">
             <div class="container-fluid bg-dark h-100 rounded">
               <div class="d-flex justify-content-between pt-4">
                 <p class="fw-bold">Attività amici</p>
