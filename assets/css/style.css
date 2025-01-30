@@ -12474,4 +12474,21 @@ body section {
 .albumBtnPlay-a {
   text-decoration: none;
   color: #ddd;
+}
+
+.albTextAccent {
+  color: #ffffff;
+}
+
+.albText {
+  color: #b3b3b3;
+}
+
+.hov:hover {
+  text-decoration: underline !important;
+  color: #ffffff;
+}
+
+.songActive {
+  background-color: #2f3235 !important;
 }/*# sourceMappingURL=style.css.map */

@@ -6,6 +6,7 @@
     <title>Spotify Team 3</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="./assets/dist/css/style.min.css" />
+    <link rel="stylesheet" href="./assets/css/circular-font.css" />
   </head>
   <body class="bg-black">
     <header>
@@ -78,7 +79,7 @@
                   </button>
                 </div>
                 <div class="col p-0 d-flex flex-column justify-content-end">
-                  <p class="m-0">Album</p>
+                  <p id="record-type" class="m-0">Album</p>
                   <h1 id="albumName" class="m-0 text-uppercase fw-bold fs-4">Titolo Album</h1>
                   <div class="m-0 d-flex align-items-baseline">
                     <img class="m-0 border border-rounded" src="" alt="" />
@@ -174,7 +175,7 @@
                 </div>
               </div>
               <!-- lista ordinata tracce -->
-              <div id="trackList" class="container-fluid">
+              <div id="trackList" class="container-fluid my-4">
                 <!-- <div class="row d-flex justify-content-between">
                   <div class="col-auto d-flex flex-column align-items-center">
                     <p class="ms-3">#</p>
@@ -184,8 +185,8 @@
                   </div>
                   <div class="col-8 d-flex align-items-center justify-content-between">
                     <div>
-                      <a href="">Titolo Capitalize</a>
-                      <a href="">nome Artista Capitalize</a>
+                      <a class="text-capitalize text-decoration-none albTextAccent hov">Titolo Capitalize</a>
+                      <a class="ext-capitalize text-decoration-none albText hov d-block" href="">nome Artista Capitalize</a>
                     </div>
                     <div>
                       <button type="button" class="btn ms-3 d-none">
@@ -218,6 +219,13 @@
                     </div>
                   </div>
                 </div> -->
+              </div>
+              <div class="row">
+                <div class="col">
+                  <p></p>
+                  <p></p>
+                  <p></p>
+                </div>
               </div>
               <!-- altri album -->
               <div class="row">
