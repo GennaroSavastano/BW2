@@ -389,7 +389,8 @@ closePanel.addEventListener("click", () => {
 });
 
 const friendstasks = document.querySelector("#friendstasks");
-friendstasks.addEventListener("click", () => {
+friendstasks.addEventListener("click", (e) => {
+  e.preventDefault();
   rightBar.classList.remove("d-none");
 });
 
