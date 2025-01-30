@@ -339,7 +339,7 @@ function createRecommended(recommendedSongs) {
 // codice per la gestione del carosello
 
 $(".carousel").slick({
-  dots: true,
+  dots: false,
   infinite: false,
   speed: 300,
   slidesToShow: 4,
