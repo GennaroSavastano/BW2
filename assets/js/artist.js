@@ -122,6 +122,12 @@ function createCard(albums) {
 
         const card = document.createElement("div");
         card.classList.add("card");
+        card.addEventListener("mouseover", () => {
+          cardLink.classList.remove("d-none");
+        });
+        card.addEventListener("mouseout", () => {
+          cardLink.classList.add("d-none");
+        });
 
         const imgCard = document.createElement("img");
         imgCard.src = albumCardList.cover_medium;
@@ -140,9 +146,9 @@ function createCard(albums) {
         cardP.innerText = albumCardList.release_date;
 
         const cardLink = document.createElement("a");
-        cardLink.classList.add("btn", "btn-primary");
-        cardLink.href = "playlist.html?id=" + albumCardList.id;
-        cardLink.innerText = "link";
+        cardLink.classList.add("btn", "btn-primary", "d-none", "stretched-link");
+        cardLink.href = "album.html?id=" + albumCardList.id;
+        cardLink.innerText = "camillo";
 
         card.appendChild(imgCard);
         card.appendChild(divBody);
