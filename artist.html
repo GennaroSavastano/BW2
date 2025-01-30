@@ -6,6 +6,7 @@
     <title>Spotify Team 3</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="./assets/dist/css/style.min.css" />
+    <link rel="stylesheet" href="./assets/css/circular-font.css" />
   </head>
   <body class="bg-black">
     <header>
@@ -79,128 +80,138 @@
                   <p><span id="fans"></span> ascoltatori</p>
                 </div>
               </div>
-              <div id="album" class="d-flex align-items-center gap-5 mt-3">
-                <button class="player-btn play-pause play-green btn btn-lg" type="button" style="height: 60px; width: 60px; background-color: #3be477">
-                  <svg data-encore-id="icon" role="img" aria-hidden="true" class="svgplayer" viewBox="0 0 16 16" style="width: 25px">
-                    <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
-                  </svg>
-                </button>
-                <button class="btn-segui fw-bold">Segui</button>
-                <div class="dropdown">
-                  <button
-                    class="btn btn-secondary"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                    style="background-color: transparent; border: none"
-                  >
-                    <i class="bi bi-three-dots fs-2 fw-light" style="color: gray"></i>
+              <div class="m-4">
+                <div id="album" class="d-flex align-items-center gap-5 mt-3">
+                  <button class="player-btn play-pause play-green btn btn-lg" type="button" style="height: 60px; width: 60px; background-color: #3be477">
+                    <svg data-encore-id="icon" role="img" aria-hidden="true" class="svgplayer" viewBox="0 0 16 16" style="width: 25px">
+                      <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
+                    </svg>
                   </button>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a class="dropdown-item" href="#"><i class="bi bi-person-add"></i> Segui</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#"><i class="bi bi-slash-circle"></i> Non riprodurre i contenuti dell'artista</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#"><i class="bi bi-broadcast"></i> Vai a Radio dell'artista</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#"><i class="bi bi-exclamation-octagon"></i> Segnala</a>
-                    </li>
-                    <li>
-                      <button>
-                        <div>
-                          <i class="bi bi-box-arrow-up"></i>
-                          <p>Condividi</p>
+                  <button class="btn-segui fw-bold">Segui</button>
+                  <div class="dropdown">
+                    <button
+                      class="btn btn-secondary"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                      style="background-color: transparent; border: none"
+                    >
+                      <i class="bi bi-three-dots fs-2 fw-light" style="color: gray"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="dropdown-item" href="#"><i class="bi bi-person-add"></i> Segui</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#"><i class="bi bi-slash-circle"></i> Non riprodurre i contenuti dell'artista</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#"><i class="bi bi-broadcast"></i> Vai a Radio dell'artista</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#"><i class="bi bi-exclamation-octagon"></i> Segnala</a>
+                      </li>
+                      <li>
+                        <div class="btn-group dropend">
+                          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropend</button>
+                          <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Action two</a></li>
+                            <li><a class="dropdown-item" href="#">Action three</a></li>
+                          </ul>
                         </div>
-                        <span>
-                          <i class="bi bi-caret-right-fill"></i>
-                        </span>
-                      </button>
-                      <div id="insideMenu">
-                        <ul>
-                          <li>
-                            <a href="#"><i class="bi bi-copy"></i> Copia link all'artista</a>
-                          </li>
-                          <li>
-                            <a href="#"><i class="bi bi-code-square"></i> Incorpora artista</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li><hr class="dropdown-divider" /></li>
-                    <li><a class="dropdown-item" href="#">Apri con l'app per dekstop </a></li>
-                  </ul>
-                </div>
-              </div>
-              <br />
-              <div class="d-flex justify-content-between">
-                <div class="d-flex flex-column w-100">
-                  <h3>Popolari</h3>
-                  <div id="containerPopular" class="container-fluid"></div>
-                </div>
-                <div class="justify-content-end">
-                  <h3>Selezione dell'artista</h3>
-                  <a href="#"><img src="assets/imgs/main/image-12.jpg" style="border-radius: 10px" /></a>
-                </div>
-              </div>
-              <br />
-              <div>
-                <h3>Discografia</h3>
-                <div class="container-fluid">
-                  <div id="discografia" class="row">
-                    
+                      </li>
+                      <li>
+                        <button>
+                          <div>
+                            <i class="bi bi-box-arrow-up"></i>
+                            <p>Condividi</p>
+                          </div>
+                          <span>
+                            <i class="bi bi-caret-right-fill"></i>
+                          </span>
+                        </button>
+                        <div id="insideMenu">
+                          <ul>
+                            <li>
+                              <a href="#"><i class="bi bi-copy"></i> Copia link all'artista</a>
+                            </li>
+                            <li>
+                              <a href="#"><i class="bi bi-code-square"></i> Incorpora artista</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li><hr class="dropdown-divider" /></li>
+                      <li><a class="dropdown-item" href="#">Apri con l'app per dekstop </a></li>
+                    </ul>
                   </div>
                 </div>
-              </div>
+                <br />
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex flex-column w-100">
+                    <h3>Popolari</h3>
+                    <div id="containerPopular" class="container-fluid"></div>
+                  </div>
+                  <div class="justify-content-end">
+                    <h3>Selezione dell'artista</h3>
+                    <a href="#"><img src="assets/imgs/main/image-12.jpg" style="border-radius: 10px" width="250px" height="200px" /></a>
+                  </div>
+                </div>
+                <br />
+                <div>
+                  <h3>Discografia</h3>
+                  <div class="container-fluid">
+                    <div id="discografia" class="row"></div>
+                  </div>
+                </div>
 
-              <br />
-              <br />
-              <footer>
-                <div class="row">
-                  <div class="col d-flex flex-column align-items-start">
-                    <p><strong>Azienda</strong></p>
-                    <a href="#">Chi siamo</a>
-                    <a href="#">Oppurtunità di lavoro</a>
-                    <a href="#">For the Record</a>
+                <br />
+                <br />
+                <footer>
+                  <div class="row">
+                    <div class="col d-flex flex-column align-items-start">
+                      <p><strong>Azienda</strong></p>
+                      <a href="#">Chi siamo</a>
+                      <a href="#">Oppurtunità di lavoro</a>
+                      <a href="#">For the Record</a>
+                    </div>
+                    <div class="col d-flex flex-column align-items-start">
+                      <p><strong>Communuty</strong></p>
+                      <a href="#">Per artisti</a>
+                      <a href="#">Sviluppatori</a>
+                      <a href="#">Pubblicità</a>
+                      <a href="#">Investitori</a>
+                      <a href="#">Venditori</a>
+                    </div>
+                    <div class="col d-flex flex-column align-items-start">
+                      <p><strong>Link utili</strong></p>
+                      <a href="#">Assistenza</a>
+                      <a href="#">App per cellulare gratuita</a>
+                      <a href="#">Diritti del consumatore</a>
+                    </div>
+                    <div class="col d-flex flex-column align-items-start">
+                      <p><strong>Piani Spotify</strong></p>
+                      <a href="#">Premium Individual</a>
+                      <a href="#">Premium Duo</a>
+                      <a href="#">Premium Family</a>
+                      <a href="#">Premium Student</a>
+                      <a href="#">Spotify Free</a>
+                    </div>
+                    <div class="col">
+                      <button>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                      </button>
+                      <button>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                      </button>
+                      <button>
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                      </button>
+                    </div>
                   </div>
-                  <div class="col d-flex flex-column align-items-start">
-                    <p><strong>Communuty</strong></p>
-                    <a href="#">Per artisti</a>
-                    <a href="#">Sviluppatori</a>
-                    <a href="#">Pubblicità</a>
-                    <a href="#">Investitori</a>
-                    <a href="#">Venditori</a>
-                  </div>
-                  <div class="col d-flex flex-column align-items-start">
-                    <p><strong>Link utili</strong></p>
-                    <a href="#">Assistenza</a>
-                    <a href="#">App per cellulare gratuita</a>
-                    <a href="#">Diritti del consumatore</a>
-                  </div>
-                  <div class="col d-flex flex-column align-items-start">
-                    <p><strong>Piani Spotify</strong></p>
-                    <a href="#">Premium Individual</a>
-                    <a href="#">Premium Duo</a>
-                    <a href="#">Premium Family</a>
-                    <a href="#">Premium Student</a>
-                    <a href="#">Spotify Free</a>
-                  </div>
-                  <div class="col">
-                    <button>
-                      <a href="#"><i class="bi bi-instagram"></i></a>
-                    </button>
-                    <button>
-                      <a href="#"><i class="bi bi-twitter"></i></a>
-                    </button>
-                    <button>
-                      <a href="#"><i class="bi bi-facebook"></i></a>
-                    </button>
-                  </div>
-                </div>
-              </footer>
+                </footer>
+              </div>
             </div>
           </div>
 
