@@ -482,7 +482,7 @@ async function startSong(idArt, apiUrl, apiKey) {
       songIndex = 0;
     }
     loadSong(songIndex);
-    playSong(songIndex);
+    playSong();
   };
 
   prevBtn.addEventListener("click", prevSongPlay);
@@ -526,7 +526,7 @@ async function startSong(idArt, apiUrl, apiKey) {
     audio.currentTime = (clickedOffsetX / progressWidth) * songDuration;
     playSong();
   });
-
+  playSong(songIndex);
   audio.addEventListener("ended", nextSongPlay);
 }
 
