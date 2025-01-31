@@ -12577,6 +12577,8 @@ footer button {
   width: 50px;
 }
 
-.bi-instagram, .bi-twitter, .bi-facebook {
+.bi-instagram,
+.bi-twitter,
+.bi-facebook {
   color: white;
 }/*# sourceMappingURL=style.css.map */

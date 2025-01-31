@@ -619,23 +619,23 @@ body {
   background-color: #2e2e2e;
 }
 
-
-
 // footer
 footer {
   a {
-  color: gray;
-  text-decoration: none; 
-
-}}
+    color: gray;
+    text-decoration: none;
+  }
+}
 footer button {
   border-color: transparent;
   border-radius: 50px;
-  background-color:#2f3235 ;
+  background-color: #2f3235;
   height: 50px;
   width: 50px;
 }
 
-.bi-instagram, .bi-twitter, .bi-facebook{
+.bi-instagram,
+.bi-twitter,
+.bi-facebook {
   color: white;
 }
