@@ -96,6 +96,10 @@ body {
     .coldaily {
       width: 216px !important;
     }
+    .widthcard {
+      height: 285px;
+      transition: 0.1s linear;
+    }
     .space-normal {
       white-space: normal;
     }
@@ -500,6 +504,14 @@ body {
   width: 5000px !important;
 }
 
+.grow1 {
+  flex-grow: 1;
+}
+
+.minleftbar {
+  width: 90px;
+}
+
 // PAGINA ALBUM
 
 .dateOfRelease::before,
@@ -526,6 +538,17 @@ body {
   color: #ddd;
 }
 
+#artist-songs {
+  font-size: 0.75rem;
+}
+
+#hourspan {
+  font-size: 0.75rem;
+}
+
+#arrow {
+  cursor: pointer;
+}
 
 // artista card
 
@@ -533,14 +556,12 @@ body {
   padding: 10px;
   transition: 0.2s linear;
   border: none;
-  img{
+  img {
     border-radius: 8px;
   }
-  
 }
-.card-body{
+.card-body {
   padding: 8px 5px 5px;
- 
 }
 
 // artista popolari
@@ -548,8 +569,29 @@ body {
 .row {
   padding: 3px;
   border-radius: 8px;
- 
 }
+
+.albTextAccent {
+  color: #ffffff;
+}
+
+.albText {
+  color: #b3b3b3;
+}
+
+.hov:hover {
+  text-decoration: underline !important;
+  color: #ffffff;
+}
+
+.songActive {
+  background-color: #2f3235 !important;
+}
+
+.songMouseOver {
+  background-color: #2e2e2e;
+}
+
 
 
 // footer

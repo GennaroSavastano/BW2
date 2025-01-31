@@ -26,6 +26,14 @@ const isLoading = function (loadingState) {
   }
 };
 
+if (sessionStorage.getItem("recommended")) {
+  recommendedSongs.push(JSON.parse(sessionStorage.getItem("recommended")));
+  isLoading(false);
+  createRecommended(recommendedSongs[0]);
+} else {
+  fetchRecommended(artists, myApiUrl, API_KEY, 0);
+}
+
 if (sessionStorage.getItem("artists")) {
   artists.push(JSON.parse(sessionStorage.getItem("artists")));
   isLoading(false);
@@ -86,7 +94,7 @@ function createDaily(artists) {
     colArtist.classList.add("coldaily", "item");
 
     const divArtist = document.createElement("div");
-    divArtist.classList.add("d-flex", "align-items-center", "card", "w-100", "border-0");
+    divArtist.classList.add("d-flex", "align-items-center", "card", "w-100", "border-0", "widthcard");
 
     const dailyMix = document.createElement("div", "text-truncate");
     dailyMix.classList.add("d-flex", "justify-content-between", "w-100", "align-items-center", "dailyinfo");
@@ -124,10 +132,12 @@ function createDaily(artists) {
 
     colArtist.addEventListener("mouseover", () => {
       playBtn.classList.add("show");
+      divArtist.style.background = "#2f3235";
     });
 
     colArtist.addEventListener("mouseout", () => {
       playBtn.classList.remove("show");
+      divArtist.style.background = "transparent";
     });
 
     colArtist.addEventListener("click", () => {
@@ -188,7 +198,7 @@ function createBetter(artists) {
     colArtist.classList.add("coldaily");
 
     const divArtist = document.createElement("div");
-    divArtist.classList.add("d-flex", "align-items-center", "card", "w-100", "border-0", "card-better");
+    divArtist.classList.add("d-flex", "align-items-center", "card", "w-100", "border-0", "card-better", "widthcard");
 
     const imgArtist = document.createElement("img");
     imgArtist.src = artists[i].picture_medium;
@@ -216,10 +226,12 @@ function createBetter(artists) {
 
     colArtist.addEventListener("mouseover", () => {
       playBtn.classList.add("show");
+      divArtist.style.background = "#2f3235";
     });
 
     colArtist.addEventListener("mouseout", () => {
       playBtn.classList.remove("show");
+      divArtist.style.background = "transparent";
     });
 
     colArtist.addEventListener("click", () => {
@@ -230,13 +242,49 @@ function createBetter(artists) {
   h2.classList.add("mt-5", "mb-0", "fs-4");
   h2.innerText = "Il meglio degli artisti";
 
-  if (sessionStorage.getItem("recommended")) {
-    recommendedSongs.push(JSON.parse(sessionStorage.getItem("recommended")));
-    isLoading(false);
-    createRecommended(recommendedSongs[0]);
-  } else {
-    return fetchRecommended(artists, myApiUrl, API_KEY, 0);
-  }
+  const h2Reco = document.getElementById("recommended");
+  h2Reco.classList.remove("d-none");
+  h2Reco.classList.add("mt-5", "mb-0", "fs-4", "d-block");
+  h2Reco.innerText = "Consigliata per oggi";
+
+  const recoSongs = document.getElementById("recommendedsongs");
+  recoSongs.parentElement.classList.remove("d-none");
+
+  $(".carousel").slick({
+    dots: false,
+    infinite: false,
+    speed: 300,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          infinite: false,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ],
+  });
 }
 
 async function fetchRecommended(artists, apiUrl, apiKey, idSongs) {
@@ -279,7 +327,7 @@ function createRecommended(recommendedSongs) {
     colArtist.classList.add("coldaily");
 
     const divArtist = document.createElement("div");
-    divArtist.classList.add("d-flex", "align-items-center", "card", "w-100", "border-0", "card-better");
+    divArtist.classList.add("d-flex", "align-items-center", "card", "w-100", "border-0", "card-better", "widthcard");
 
     const imgArtist = document.createElement("img");
     imgArtist.src = recommendedSongs[i][0].album.cover_medium;
@@ -319,57 +367,16 @@ function createRecommended(recommendedSongs) {
 
     colArtist.addEventListener("mouseover", () => {
       playBtn.classList.add("show");
+      divArtist.style.background = "#2f3235";
     });
 
     colArtist.addEventListener("mouseout", () => {
       playBtn.classList.remove("show");
+      divArtist.style.background = "transparent";
     });
 
     colArtist.addEventListener("click", () => {
       window.location.href = `artist.html?id=${recommendedSongs[i][0].artist.id}`;
     });
   }
-  const h2 = document.getElementById("recommended");
-  h2.classList.remove("d-none");
-  h2.classList.add("mt-5", "mb-0", "fs-4", "d-block");
-  h2.innerText = "Consigliata per oggi";
-  //return fetchRecommended(artists, myApiUrl, API_KEY, 0);
 }
-
-// codice per la gestione del carosello
-
-$(".carousel").slick({
-  dots: false,
-  infinite: false,
-  speed: 300,
-  slidesToShow: 4,
-  slidesToScroll: 4,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        infinite: false,
-        dots: false,
-      },
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-      },
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    },
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-  ],
-});

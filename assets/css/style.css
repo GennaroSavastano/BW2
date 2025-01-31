@@ -12059,6 +12059,10 @@ body main .rowdaily::-webkit-scrollbar {
 body main .coldaily {
   width: 216px !important;
 }
+body main .widthcard {
+  height: 285px;
+  transition: 0.1s linear;
+}
 body main .space-normal {
   white-space: normal;
 }
@@ -12452,6 +12456,14 @@ body section {
   width: 5000px !important;
 }
 
+.grow1 {
+  flex-grow: 1;
+}
+
+.minleftbar {
+  width: 90px;
+}
+
 .dateOfRelease::before,
 .dateOfRelease::after {
   content: "•";
@@ -12476,6 +12488,18 @@ body section {
   color: #ddd;
 }
 
+#artist-songs {
+  font-size: 0.75rem;
+}
+
+#hourspan {
+  font-size: 0.75rem;
+}
+
+#arrow {
+  cursor: pointer;
+}
+
 .cardAlbum {
   padding: 10px;
   transition: 0.2s linear;
@@ -12492,6 +12516,27 @@ body section {
 .row {
   padding: 3px;
   border-radius: 8px;
+}
+
+.albTextAccent {
+  color: #ffffff;
+}
+
+.albText {
+  color: #b3b3b3;
+}
+
+.hov:hover {
+  text-decoration: underline !important;
+  color: #ffffff;
+}
+
+.songActive {
+  background-color: #2f3235 !important;
+}
+
+.songMouseOver {
+  background-color: #2e2e2e;
 }
 
 footer a {
