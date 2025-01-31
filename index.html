@@ -266,7 +266,20 @@
     <section class="d-flex align-items-center">
       <div class="container-fluid pt-3">
         <div class="row">
-          <div class="col-4"></div>
+          <div class="col-4">
+            <!-- Nome artista e cover -->
+            <div class="d-flex">
+              <div class="player-body"></div>
+              <div class="song-info">
+                <div class="song-details">
+                  <span class="song-name">Mulholland</span>
+                  <span class="song-artist">King Canyon</span>
+                </div>
+                <i class="fa-solid fa-heart"></i>
+              </div>
+            </div>
+            <!-- Controlli -->
+          </div>
           <div class="col-4">
             <div class="d-flex justify-content-center">
               <div class="controls">
@@ -317,13 +330,13 @@
             </div>
 
             <div class="song-duration d-flex align-items-center">
-              <span class="fs-8">0:00</span>
+              <span class="fs-8" id="current">0:00</span>
               <div class="song-time">
                 <div class="song-progress">
                   <audio src="" class="audio"></audio>
                 </div>
               </div>
-              <span class="fs-8">0:00</span>
+              <span class="fs-8" id="duration">0:00</span>
             </div>
           </div>
           <div class="col-4">

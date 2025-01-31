@@ -15,6 +15,7 @@ const recommendedSongs = [];
 const numSongs = 10;
 let songsCreated = 0;
 const divRecoSongs = document.getElementById("recommendedsongs");
+let songData = [];
 
 // Codice per gestione spinner
 const isLoading = function (loadingState) {
@@ -52,7 +53,7 @@ async function fetchArtists(numArtists, apiUrl, apiKey) {
     const idArtist = Math.round(Math.random() * 100);
 
     if (idArr.includes(idArtist)) {
-      idArtist += 50;
+      idArtist = Math.round(Math.random() * 100);
     }
 
     const url = `${apiUrl}artist/${idArtist}`;
@@ -142,6 +143,11 @@ function createDaily(artists) {
 
     colArtist.addEventListener("click", () => {
       window.location.href = `artist.html?id=${artists[i].id}`;
+    });
+
+    playBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      startSong(artists[i].id, myApiUrl, API_KEY);
     });
   }
   const h2 = document.getElementById("foryou");
@@ -379,4 +385,129 @@ function createRecommended(recommendedSongs) {
       window.location.href = `artist.html?id=${recommendedSongs[i][0].artist.id}`;
     });
   }
+}
+
+async function startSong(idArt, apiUrl, apiKey) {
+  const idArtist = idArt;
+  const url = `${apiUrl}artist/${idArtist}/top?limit=50`;
+  const options = {
+    method: "GET",
+    headers: {
+      Authorization: apiKey,
+    },
+  };
+
+  try {
+    const response = await fetch(url, options);
+    if (!response.ok) {
+      throw new Error(`Errore per l'artista ${idArtist}: ${response.statusText}`);
+    }
+    const singleSong = await response.json();
+    songData = [...singleSong.data];
+  } catch (err) {
+    console.error(`Errore durante il fetch della canzone per l'artista ${idArtist}: ${err.message}`);
+  }
+  console.log(songData);
+
+  const container = document.querySelector(".controls");
+  const songName = document.querySelector(".song-name");
+  const songArtist = document.querySelector(".song-artist");
+  const cover = document.querySelector(".cover");
+  const plauPauseBtn = document.querySelector(".play-pause");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
+  const audio = document.querySelector(".audio");
+  const songTime = document.querySelector(".song-time");
+  const songProgress = document.querySelector(".song-progress");
+
+  loadSong(0);
+  function loadSong(index) {
+    songName.textContent = songData[index].title;
+    songArtist.textContent = songData[index].artist.name;
+    audio.src = songData[index].preview;
+  }
+
+  const playSong = () => {
+    container.classList.add("pause");
+    plauPauseBtn.firstElementChild.className = "fa-solid fa-pause";
+    audio.play();
+    cover.classList.add("rotate");
+  };
+  const pauseSong = () => {
+    container.classList.remove("pause");
+    plauPauseBtn.firstElementChild.className = "fa-solid fa-play";
+    audio.pause();
+    cover.classList.remove("rotate");
+  };
+
+  plauPauseBtn.addEventListener("click", () => {
+    if (container.classList.contains("pause")) {
+      pauseSong();
+    } else {
+      playSong();
+    }
+  });
+
+  const prevSongPlay = () => {
+    songIndex--;
+    if (songIndex < 0) {
+      songIndex = songData.length - 1;
+    }
+    loadSong(songIndex);
+    playSong();
+  };
+
+  const nextSongPlay = () => {
+    songIndex++;
+    if (songIndex > songData.length - 1) {
+      songIndex = 0;
+    }
+    loadSong(songIndex);
+    playSong();
+  };
+
+  prevBtn.addEventListener("click", prevSongPlay);
+  nextBtn.addEventListener("click", nextSongPlay);
+
+  audio.addEventListener("timeupdate", (e) => {
+    const currentTime = e.target.currentTime;
+    const duration = e.target.duration;
+    let currentTimeWidth = (currentTime / duration) * 100;
+    songProgress.style.width = `${currentTimeWidth}%`;
+
+    let songCurrentTime = document.querySelector("#current");
+    let songDuration = document.querySelector("#duration");
+
+    audio.addEventListener("loadeddata", () => {
+      let audioDuration = audio.duration;
+
+      let totalMinutes = Math.floor(audioDuration / 60);
+      let totalSeconds = Math.floor(audioDuration % 60);
+
+      if (totalSeconds < 10) {
+        totalSeconds = `0${totalSeconds}`;
+      }
+
+      songDuration.textContent = `${totalMinutes}:${totalSeconds}`;
+    });
+    let currentMinutes = Math.floor(currentTime / 60);
+    let currentSeconds = Math.floor(currentTime % 60);
+
+    if (currentSeconds < 10) {
+      currentSeconds = `0${currentSeconds}`;
+    }
+
+    songCurrentTime.textContent = `${currentMinutes}:${currentSeconds}`;
+  });
+
+  songTime.addEventListener("click", (e) => {
+    let progressWidth = songTime.clientWidth;
+    let clickedOffsetX = e.offsetX;
+    let songDuration = audio.duration;
+    audio.currentTime = (clickedOffsetX / progressWidth) * songDuration;
+    playSong();
+  });
+
+  audio.addEventListener("ended", nextSongPlay);
+  playSong(0);
 }
