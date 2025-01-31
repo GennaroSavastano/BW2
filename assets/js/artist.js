@@ -19,13 +19,16 @@ fetch(URL + folder)
 
 function imgs(artista) {
   const imgArt = document.getElementById("artista");
+  const imgSelezione = document.getElementById("imgSelezione")
   // console.log(artista[0].picture);
   imgArt.style.backgroundImage = "url(" + artista[0].picture_xl + ")";
-  imgArt.style.backgroundColor = "red";
   imgArt.style.backgroundRepeat = "no-repeat";
   imgArt.style.backgroundSize = "cover";
   imgArt.style.backgroundPosition = "center";
+
+  imgSelezione.src = artista[0].picture_xl;
   return nameArtist(artista);
+
 }
 
 function nameArtist(artista) {
@@ -165,6 +168,32 @@ function createCard(albums) {
         col.appendChild(card);
 
         cardDiscografia.appendChild(col);
+        footer();
       });
+  }
+}
+
+function footer() {
+  const linkFooter = document.getElementsByClassName("footerLink");
+  for (let link of linkFooter) {
+    link.addEventListener("mouseover", () => {
+      link.style.textDecoration = "underline";
+      link.style.color = "white";
+    });
+
+    link.addEventListener("mouseout", () => {
+      link.style.textDecoration = "none";
+      link.style.color = "gray";
+    });
+  }
+  const footerBtn = document.getElementsByClassName("btnFooter");
+  for (let btn of footerBtn) {
+    btn.addEventListener("mouseover", () => {
+      btn.style.backgroundColor = "#484e54";
+    });
+
+    btn.addEventListener("mouseout", () => {
+      btn.style.backgroundColor = "#2f3235";
+    });
   }
 }
