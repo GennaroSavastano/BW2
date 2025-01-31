@@ -25,7 +25,6 @@ function imgs(artista) {
   imgArt.style.backgroundRepeat = "no-repeat";
   imgArt.style.backgroundSize = "cover";
   imgArt.style.backgroundPosition = "center";
-
   imgSelezione.src = artista[0].picture_xl;
   return nameArtist(artista);
 }
