@@ -260,6 +260,8 @@ function createBetter(artists) {
 
   const recoSongs = document.getElementById("recommendedsongs");
   recoSongs.parentElement.classList.remove("d-none");
+  const footer = document.querySelector("footer");
+  footer.classList.remove("d-none");
 
   $(".carousel").slick({
     dots: false,
