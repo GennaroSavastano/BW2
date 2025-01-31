@@ -19,7 +19,7 @@ fetch(URL + folder)
 
 function imgs(artista) {
   const imgArt = document.getElementById("artista");
-  const imgSelezione = document.getElementById("imgSelezione")
+  const imgSelezione = document.getElementById("imgSelezione");
   // console.log(artista[0].picture);
   imgArt.style.backgroundImage = "url(" + artista[0].picture_xl + ")";
   imgArt.style.backgroundRepeat = "no-repeat";
@@ -28,7 +28,6 @@ function imgs(artista) {
 
   imgSelezione.src = artista[0].picture_xl;
   return nameArtist(artista);
-
 }
 
 function nameArtist(artista) {
@@ -62,10 +61,14 @@ function listPopular(popular) {
     containerPopular.innerHTML += `<div class="row m-1">
                                     <div class="col-4 d-flex align-items-center">
                                       <span class="align-self-center pe-1">${i + 1}</span>
-                                      <img src="${popular[i].album.cover}" width="45px" height="45" class="mb-2 mx-2 rounded" />
+                                      <img src="${
+                                        popular[i].album.cover
+                                      }" width="45px" height="45" class="mb-2 mx-2 rounded" />
                                       <span class="fs-6">${popular[i].title}</span>
                                     </div>
-                                    <div class="col-4 text-end">${parseInt(popular[i].rank).toLocaleString("it-IT")}</div>
+                                    <div class="col-4 text-end">${parseInt(popular[i].rank).toLocaleString(
+                                      "it-IT"
+                                    )}</div>
                                     <div class="col-4 text-end"><span>${formatTime(popular[i].duration)}</span></div>
                                   </div>`;
   }
@@ -136,6 +139,10 @@ function createCard(albums) {
         card.addEventListener("mouseout", () => {
           card.style.backgroundColor = "transparent";
         });
+        card.style.cursor = "pointer";
+        card.addEventListener("click", () => {
+          window.location.href = "album.html?albumId=" + albumCardList.id;
+        });
 
         const imgCard = document.createElement("img");
         imgCard.src = albumCardList.cover_medium;
@@ -155,8 +162,6 @@ function createCard(albums) {
 
         const cardLink = document.createElement("a");
         cardLink.classList.add("btn", "bg-secondary", "d-none", "stretched-link");
-        cardLink.href = "album.html?albumId=" + albumCardList.id;
-        cardLink.innerText = "camillo";
 
         card.appendChild(imgCard);
         card.appendChild(divBody);
@@ -168,6 +173,7 @@ function createCard(albums) {
         col.appendChild(card);
 
         cardDiscografia.appendChild(col);
+
         footer();
       });
   }

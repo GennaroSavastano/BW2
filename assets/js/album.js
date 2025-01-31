@@ -202,6 +202,7 @@ function fetchOtherAlbums(album) {
   const cardAlbums = [];
 
   function createCard(albums) {
+    const rightPanel = document.getElementById("rightsidebar");
     const cardDiscografia = document.getElementById("discografia");
     for (let i = 0; i < 6; i++) {
       let idAlbum = albums[i];
@@ -215,11 +216,10 @@ function fetchOtherAlbums(album) {
           }
         })
         .then((albumCardList) => {
-          // const listCardAlbum = [...albumCardList.data];
           console.log(albumCardList);
 
           const col = document.createElement("div");
-          col.classList.add("col-md-4", "col-lg-3", "m-0", "p-0");
+          col.classList.add("col-md-4", "col-lg-3", "m-0", "p-0", "discografy");
 
           const card = document.createElement("div");
           card.classList.add("card", "cardAlbumMod", "p-2", "w-100");
@@ -249,6 +249,10 @@ function fetchOtherAlbums(album) {
           const cardLink = document.createElement("a");
           cardLink.classList.add("btn", "d-none", "stretched-link");
           cardLink.href = "album.html?albumId=" + albumCardList.id;
+
+          if (i > 3) {
+            col.classList.add("d-none");
+          }
 
           card.appendChild(imgCard);
           card.appendChild(divBody);

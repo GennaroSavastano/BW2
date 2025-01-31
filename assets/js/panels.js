@@ -4,12 +4,26 @@ const contentMusic = document.getElementById("contentmusic");
 
 closePanel.addEventListener("click", () => {
   rightBar.classList.add("d-none");
+  if (window.location.href.match("album.html") != null) {
+    const discografy = document.querySelectorAll(".discografy");
+    discografy.forEach((ele) => ele.classList.remove("d-none", "col-lg-3"));
+    discografy.forEach((ele) => ele.classList.add("col-lg-2"));
+  }
 });
 
 const friendstasks = document.querySelector("#friendstasks");
 friendstasks.addEventListener("click", (e) => {
   e.preventDefault();
   rightBar.classList.remove("d-none");
+  if (window.location.href.match("album.html") != null) {
+    const discografy = document.querySelectorAll(".discografy");
+    discografy.forEach((ele) => ele.classList.add("d-none", "col-lg-3"));
+    discografy.forEach((ele) => ele.classList.remove("col-lg-2"));
+
+    for (let i = 0; i < 4; i++) {
+      discografy[i].classList.remove("d-none");
+    }
+  }
 });
 
 const library = document.querySelector("#yourlibrary");
