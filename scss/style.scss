@@ -560,6 +560,15 @@ body {
     border-radius: 8px;
   }
 }
+
+.cardAlbumMod {
+  transition: 0.2s linear;
+  border: none;
+  img {
+    border-radius: 8px;
+  }
+}
+
 .card-body {
   padding: 8px 5px 5px;
 }

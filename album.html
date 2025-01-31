@@ -157,7 +157,7 @@
               </div>
             </div>
           </div>
-          <div class="col-6 h-100 bg-dark rounded overflow-y-auto p-0 grow1" id="contentmusic">
+          <div class="col-6 h-100 bg-dark rounded overflow-y-auto p-0 grow1 overflow-x-hidden" id="contentmusic">
             <div class="overflow-y-auto container-fluid bg-dark h-100 rounded" style="height: 492px">
               <!-- ALBUM INFO -->
               <div id="albumInfo" class="row d-flex flex-row p-1 m-0" style="height: 186px">
@@ -318,19 +318,17 @@
               <!-- altri album -->
               <div class="row">
                 <div class="col mb-3 mx-1 d-flex justify-content-between">
-                  <div>
-                    <a href="">Altro di <span>NOME ARTISTA</span></a>
+                  <div id="otherOf">
+                    <a class="text-decoration-none albTextAccent hov" href=""
+                      >Altro di <span class="albTextAccent hov">NOME ARTISTA</span></a
+                    >
                   </div>
                   <div>
-                    <a href="">Vedi discografia</a>
-                  </div>
-                  <div>
-                    <div class="container-fluid">
-                      <div id="discografia" class="row"></div>
-                    </div>
+                    <a class="text-decoration-none albText hov" href="#discografia">Vedi discografia</a>
                   </div>
                 </div>
-                <div class="row">
+
+                <!-- <div class="row">
                   <div class="col-auto">
                     <div class="card p-3 bs-card-border-none border-0">
                       <img src="./assets/imgs/main/image-12.jpg" style="width: 200px" class="card-img-top" alt="..." />
@@ -340,7 +338,10 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
+              </div>
+              <div class="container-fluid">
+                <div id="discografia" class="row"></div>
               </div>
             </div>
           </div>
