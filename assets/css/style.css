@@ -12420,9 +12420,6 @@ body section {
   color: #a8a9ab;
 }
 
-#artista {
-  background-image: url(https://fastly.picsum.photos/id/355/1250/450.jpg?hmac=lhHdwVcng-ScFe2IDDFSizk6WNT_sHFTCcGVOE_dyic);
-}
 #artista h1, #artista .h1 {
   font-size: 5vw;
   white-space: nowrap;

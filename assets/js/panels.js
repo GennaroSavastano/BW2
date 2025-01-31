@@ -3,9 +3,12 @@ const rightBar = document.getElementById("rightsidebar");
 const contentMusic = document.getElementById("contentmusic");
 
 closePanel.addEventListener("click", () => {
-  console.log("Ciao");
   rightBar.classList.add("d-none");
-  if (window.location.href.match("album.html" || "artist.html") != null) {
+  if (window.location.href.match("album.html") != null) {
+    const discografy = document.querySelectorAll(".discografy");
+    discografy.forEach((ele) => ele.classList.remove("d-none", "col-lg-3"));
+    discografy.forEach((ele) => ele.classList.add("col-lg-2"));
+  } else if (window.location.href.match("artist.html") != null) {
     const discografy = document.querySelectorAll(".discografy");
     discografy.forEach((ele) => ele.classList.remove("d-none", "col-lg-3"));
     discografy.forEach((ele) => ele.classList.add("col-lg-2"));
@@ -16,7 +19,15 @@ const friendstasks = document.querySelector("#friendstasks");
 friendstasks.addEventListener("click", (e) => {
   e.preventDefault();
   rightBar.classList.remove("d-none");
-  if (window.location.href.match("album.html" || "artist.html") != null) {
+  if (window.location.href.match("album.html") != null) {
+    const discografy = document.querySelectorAll(".discografy");
+    discografy.forEach((ele) => ele.classList.add("d-none", "col-lg-3"));
+    discografy.forEach((ele) => ele.classList.remove("col-lg-2"));
+
+    for (let i = 0; i < 4; i++) {
+      discografy[i].classList.remove("d-none");
+    }
+  } else if (window.location.href.match("artist.html") != null) {
     const discografy = document.querySelectorAll(".discografy");
     discografy.forEach((ele) => ele.classList.add("d-none", "col-lg-3"));
     discografy.forEach((ele) => ele.classList.remove("col-lg-2"));
