@@ -12492,4 +12492,8 @@ body section {
 .row {
   padding: 3px;
   border-radius: 8px;
+}
+
+footer a {
+  color: gray;
 }/*# sourceMappingURL=style.css.map */
