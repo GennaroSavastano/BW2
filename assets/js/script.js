@@ -482,7 +482,7 @@ async function startSong(idArt, apiUrl, apiKey) {
       songIndex = 0;
     }
     loadSong(songIndex);
-    playSong();
+    playSong(songIndex);
   };
 
   prevBtn.addEventListener("click", prevSongPlay);
