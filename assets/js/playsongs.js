@@ -18,9 +18,10 @@ window.addEventListener("load", () => {
 });
 
 const loadSong = (index) => {
-  coverName.textContent = songData[index].name;
-  coverArtist.textContent = songData[index].artist;
-  songName.textContent = songData[index].name;
+  //coverName.textContent = songData[index].name;
+  //coverArtist.textContent = songData[index].artist;
+  songName.textContent = songData[index].artist.name;
+  console.log(songName);
   songArtist.textContent = songData[index].artist;
   audio.src = `music/${songData[index].src}`;
 };
