@@ -127,14 +127,13 @@ function createCard(albums) {
         }
       })
       .then((albumCardList) => {
-        // const listCardAlbum = [...albumCardList.data];
         console.log(albumCardList);
 
         const col = document.createElement("div");
-        col.classList.add("col-2");
+        col.classList.add("col-md-4", "col-lg-3", "m-0", "p-0", "discografy");
 
         const card = document.createElement("div");
-        card.classList.add("card", "cardAlbum");
+        card.classList.add("card", "cardAlbumMod", "p-2", "w-100");
         card.addEventListener("mouseover", () => {
           card.style.backgroundColor = "#2f3235";
         });
@@ -155,15 +154,19 @@ function createCard(albums) {
         divBody.classList.add("card-body");
 
         const cardH5 = document.createElement("h5");
-        cardH5.classList.add("card-title", "fs-7");
+        cardH5.classList.add("card-title", "fs-7", "albTextAccent", "hov");
         cardH5.innerText = albumCardList.title;
 
         const cardP = document.createElement("p");
-        cardP.classList.add("card-text", "cardP", "fs-7");
+        cardP.classList.add("card-text", "cardP", "fs-7", "albText");
         cardP.innerText = albumCardList.release_date;
 
         const cardLink = document.createElement("a");
-        cardLink.classList.add("btn", "bg-secondary", "d-none", "stretched-link");
+        cardLink.classList.add("btn", "d-none", "stretched-link");
+
+        if (i > 3) {
+          col.classList.add("d-none");
+        }
 
         card.appendChild(imgCard);
         card.appendChild(divBody);
@@ -175,7 +178,6 @@ function createCard(albums) {
         col.appendChild(card);
 
         cardDiscografia.appendChild(col);
-
         footer();
       });
   }

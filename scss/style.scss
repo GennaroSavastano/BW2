@@ -472,7 +472,12 @@ body {
   background-image: url(https://fastly.picsum.photos/id/355/1250/450.jpg?hmac=lhHdwVcng-ScFe2IDDFSizk6WNT_sHFTCcGVOE_dyic);
 
   h1 {
-    font-size: 6rem;
+    font-size: 5vw;
+    white-space: nowrap;
+    @media screen and (max-width: 1200px) {
+      font-size: 10vw;
+      white-space: nowrap;
+    }
   }
 }
 
@@ -638,4 +643,14 @@ footer button {
 .bi-twitter,
 .bi-facebook {
   color: white;
+}
+
+.pulsantiaddizzionali {
+  width: 355px;
+}
+
+#rightsidebar {
+  @media screen and (max-width: 1200px) {
+    display: none;
+  }
 }
