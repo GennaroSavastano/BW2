@@ -194,6 +194,11 @@ function createRandom(artists) {
     divGenre.addEventListener("click", () => {
       window.location.href = `artist.html?id=${artists[i].id}`;
     });
+
+    playBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      startSong(artists[i].id, myApiUrl, API_KEY);
+    });
   }
   return createBetter(artists);
 }
@@ -409,35 +414,47 @@ async function startSong(idArt, apiUrl, apiKey) {
   }
   console.log(songData);
 
+  const playerBody = document.querySelector(".player-body");
+  playerBody.innerHTML = `                
+  
+  <img id="imgSong1" class="me-3" src="">
+  <div class="song-info">
+                  <div class="song-details">
+                    <span class="song-name fs-7 text-light fw-bold">Mulholland</span>
+                    <span class="song-artist fs-8">King Canyon</span>
+                  </div>
+                  <i class="fa-solid fa-heart"></i>
+                </div>`;
+
   const container = document.querySelector(".controls");
   const songName = document.querySelector(".song-name");
   const songArtist = document.querySelector(".song-artist");
-  const cover = document.querySelector(".cover");
   const plauPauseBtn = document.querySelector(".play-pause");
   const prevBtn = document.querySelector(".prev-btn");
   const nextBtn = document.querySelector(".next-btn");
   const audio = document.querySelector(".audio");
   const songTime = document.querySelector(".song-time");
   const songProgress = document.querySelector(".song-progress");
+  const imgSong1 = document.querySelector("#imgSong1");
+  let songIndex = 0;
 
-  loadSong(0);
+  loadSong(songIndex);
   function loadSong(index) {
     songName.textContent = songData[index].title;
     songArtist.textContent = songData[index].artist.name;
     audio.src = songData[index].preview;
+    imgSong1.src = songData[index].album.cover;
+    imgSong1.width = "50";
   }
-
   const playSong = () => {
     container.classList.add("pause");
     plauPauseBtn.firstElementChild.className = "fa-solid fa-pause";
     audio.play();
-    cover.classList.add("rotate");
   };
   const pauseSong = () => {
     container.classList.remove("pause");
     plauPauseBtn.firstElementChild.className = "fa-solid fa-play";
     audio.pause();
-    cover.classList.remove("rotate");
   };
 
   plauPauseBtn.addEventListener("click", () => {
@@ -509,5 +526,4 @@ async function startSong(idArt, apiUrl, apiKey) {
   });
 
   audio.addEventListener("ended", nextSongPlay);
-  playSong(0);
 }
