@@ -106,9 +106,14 @@ function createTrackList(album) {
     trackList.appendChild(trackItem);
 
     const otherOf = document.getElementById("otherOf");
-    otherOf.innerHTML = `<a class="text-decoration-none albTextAccent hov" href=""
+    otherOf.innerHTML = `<a class="text-decoration-none albTextAccent hov fs-3" href=""
                       >Altro di <span class="albTextAccent hov">${track.artist.name}</span></a
                     >`;
+
+    const betters = document.getElementById("betters");
+    betters.addEventListener("click", () => {
+      window.location.href = "artist.html?id=" + track.artist.id;
+    });
 
     let enable = "";
 
@@ -229,6 +234,10 @@ function fetchOtherAlbums(album) {
           card.addEventListener("mouseout", () => {
             card.style.backgroundColor = "transparent";
           });
+          card.style.cursor = "pointer";
+          card.addEventListener("click", () => {
+            window.location.href = "album.html?albumId=" + albumCardList.id;
+          });
 
           const imgCard = document.createElement("img");
           imgCard.src = albumCardList.cover_medium;
@@ -239,16 +248,15 @@ function fetchOtherAlbums(album) {
           divBody.classList.add("card-body");
 
           const cardH5 = document.createElement("h5");
-          cardH5.classList.add("card-title", "fs-7");
+          cardH5.classList.add("card-title", "fs-7", "albTextAccent", "hov");
           cardH5.innerText = albumCardList.title;
 
           const cardP = document.createElement("p");
-          cardP.classList.add("card-text", "cardP", "fs-7");
+          cardP.classList.add("card-text", "cardP", "fs-7", "albText");
           cardP.innerText = albumCardList.release_date;
 
           const cardLink = document.createElement("a");
           cardLink.classList.add("btn", "d-none", "stretched-link");
-          cardLink.href = "album.html?albumId=" + albumCardList.id;
 
           if (i > 3) {
             col.classList.add("d-none");

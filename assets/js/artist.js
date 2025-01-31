@@ -58,18 +58,20 @@ function listPopular(popular) {
   console.log(popular.length);
   // titolo1.innerText = popular[0][0].title;
   for (let i = 0; i < popular.length; i++) {
-    containerPopular.innerHTML += `<div class="row m-1">
-                                    <div class="col-4 d-flex align-items-center">
+    containerPopular.innerHTML += `<div class="row my-1">
+                                    <div class="col-8 d-flex align-items-center px-0">
                                       <span class="align-self-center pe-1">${i + 1}</span>
                                       <img src="${
                                         popular[i].album.cover
                                       }" width="45px" height="45" class="mb-2 mx-2 rounded" />
                                       <span class="fs-6">${popular[i].title}</span>
                                     </div>
-                                    <div class="col-4 text-end">${parseInt(popular[i].rank).toLocaleString(
+                                    <div class="col-2 text-end px-0">${parseInt(popular[i].rank).toLocaleString(
                                       "it-IT"
                                     )}</div>
-                                    <div class="col-4 text-end"><span>${formatTime(popular[i].duration)}</span></div>
+                                    <div class="col-2 text-end px-0"><span>${formatTime(
+                                      popular[i].duration
+                                    )}</span></div>
                                   </div>`;
   }
 
