@@ -130,7 +130,7 @@ function createCard(albums) {
         console.log(albumCardList);
 
         const col = document.createElement("div");
-        col.classList.add("col-md-4", "col-lg-3", "m-0", "p-0", "discografy");
+        col.classList.add("col-12", "col-sm-6", "col-md-3", "col-lg-3", "m-0", "p-0", "discografy");
 
         const card = document.createElement("div");
         card.classList.add("card", "cardAlbumMod", "p-2", "w-100");

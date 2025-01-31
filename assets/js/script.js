@@ -527,3 +527,30 @@ async function startSong(idArt, apiUrl, apiKey) {
 
   audio.addEventListener("ended", nextSongPlay);
 }
+
+function footer() {
+  const linkFooter = document.getElementsByClassName("footerLink");
+  for (let link of linkFooter) {
+    link.addEventListener("mouseover", () => {
+      link.style.textDecoration = "underline";
+      link.style.color = "white";
+    });
+
+    link.addEventListener("mouseout", () => {
+      link.style.textDecoration = "none";
+      link.style.color = "gray";
+    });
+  }
+  const footerBtn = document.getElementsByClassName("btnFooter");
+  for (let btn of footerBtn) {
+    btn.addEventListener("mouseover", () => {
+      btn.style.backgroundColor = "#484e54";
+    });
+
+    btn.addEventListener("mouseout", () => {
+      btn.style.backgroundColor = "#2f3235";
+    });
+  }
+}
+
+footer();

@@ -224,7 +224,7 @@ function fetchOtherAlbums(album) {
           console.log(albumCardList);
 
           const col = document.createElement("div");
-          col.classList.add("col-md-4", "col-lg-3", "m-0", "p-0", "discografy");
+          col.classList.add("col-12", "col-sm-6", "col-md-3", "col-lg-3", "m-0", "p-0", "discografy");
 
           const card = document.createElement("div");
           card.classList.add("card", "cardAlbumMod", "p-2", "w-100");
@@ -282,3 +282,30 @@ function formatTime2(seconds) {
   const remainingSeconds = seconds % 60;
   return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
 }
+
+function footer() {
+  const linkFooter = document.getElementsByClassName("footerLink");
+  for (let link of linkFooter) {
+    link.addEventListener("mouseover", () => {
+      link.style.textDecoration = "underline";
+      link.style.color = "white";
+    });
+
+    link.addEventListener("mouseout", () => {
+      link.style.textDecoration = "none";
+      link.style.color = "gray";
+    });
+  }
+  const footerBtn = document.getElementsByClassName("btnFooter");
+  for (let btn of footerBtn) {
+    btn.addEventListener("mouseover", () => {
+      btn.style.backgroundColor = "#484e54";
+    });
+
+    btn.addEventListener("mouseout", () => {
+      btn.style.backgroundColor = "#2f3235";
+    });
+  }
+}
+
+footer();
