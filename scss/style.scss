@@ -422,6 +422,26 @@ body {
   top: 190px;
   left: 70px;
 }
+
+.play-pause-card-reco {
+  width: 42px;
+  height: 62px;
+  background: #37e189;
+  transform: translateY(10px);
+  transition: 0.1s linear;
+  position: relative;
+  opacity: 0;
+  visibility: hidden;
+  top: 190px;
+  left: 70px;
+}
+
+.play-pause-card-reco.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
 .play-pause-card.show {
   opacity: 1;
   transform: translateY(0);

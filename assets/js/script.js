@@ -3,16 +3,16 @@ let myApiUrl = "https://striveschool-api.herokuapp.com/api/deezer/";
 
 let idArtist = 0;
 let artistCreated = 0;
-const numArtists = 22;
+const numArtists = 35;
 const artists = [];
 const daily = document.getElementById("daily");
-const dailyLenght = 6;
+const dailyLenght = 7;
 const genre = document.getElementById("genre");
 const randomLenght = dailyLenght + 8;
 const betterArtist = document.getElementById("betterartist");
-const betterArtistLenght = randomLenght + 6;
+const betterArtistLenght = randomLenght + 20;
 const recommendedSongs = [];
-const numSongs = 6;
+const numSongs = 10;
 let songsCreated = 0;
 const divRecoSongs = document.getElementById("recommendedsongs");
 
@@ -348,7 +348,7 @@ function createRecommended(recommendedSongs) {
     titleArtist.innerHTML = `${recommendedSongs[i][0].title}<span class="text-light">${recommendedSongs[i][0].artist.name}</span>`;
 
     const playBtn = document.createElement("button");
-    playBtn.classList.add("player-btn", "play-pause-card", "me-2");
+    playBtn.classList.add("player-btn", "play-pause-card-reco", "me-2");
     playBtn.type = "button";
     playBtn.innerHTML = `<svg data-encore-id="icon" role="img" aria-hidden="true" class="svgplayer" viewBox="0 0 16 16">
         <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
